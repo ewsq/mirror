@@ -16,9 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.camerakit.CameraKit;
-import com.example.myapplication.R;
 import com.miyatu.mirror.Custom.ProgresDialog;
 import com.miyatu.mirror.MyApp;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.tozmart.tozisdk.activity.RxAppCompatActivity;
 import com.tozmart.tozisdk.api.ProcessCallback;

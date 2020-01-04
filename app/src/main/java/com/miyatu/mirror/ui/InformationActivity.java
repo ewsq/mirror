@@ -9,11 +9,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.adapter.InformationAdapter;
 import com.miyatu.mirror.bean.InformationDatabean;
 import com.miyatu.mirror.http.api.IndexApi;

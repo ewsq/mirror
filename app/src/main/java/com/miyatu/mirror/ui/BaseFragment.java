@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.request.RequestOptions;
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

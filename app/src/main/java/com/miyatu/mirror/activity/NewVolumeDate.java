@@ -8,11 +8,11 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
+
 
 public class NewVolumeDate extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener{
     private EditText et_new_volume_username=null,//姓名

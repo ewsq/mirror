@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.adapter.RecordDetailsAdapter;
 import com.miyatu.mirror.bean.RecordDetailsBean;
 import com.miyatu.mirror.http.api.IndexApi;

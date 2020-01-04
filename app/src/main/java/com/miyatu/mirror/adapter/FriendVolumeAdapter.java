@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.FriendVolumeRecordFragmentBean;
 
 import java.text.SimpleDateFormat;

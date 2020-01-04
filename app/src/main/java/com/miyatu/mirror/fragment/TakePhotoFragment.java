@@ -18,13 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.lwj.widget.viewpagerindicator.ViewPagerIndicator;
 import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicFragment;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.activity.AddAccountBind;
 import com.miyatu.mirror.activity.CourseListBean;
 import com.miyatu.mirror.activity.FrontCameraActivity;

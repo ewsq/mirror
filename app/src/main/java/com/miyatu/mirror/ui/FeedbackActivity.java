@@ -7,11 +7,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.BaseBean;
 import com.miyatu.mirror.http.api.IndexApi;
 import com.miyatu.mirror.util.LogUtils;

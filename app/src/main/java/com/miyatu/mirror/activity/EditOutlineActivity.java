@@ -8,8 +8,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.myapplication.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.miyatu.mirror.R;
 import com.tozmart.tozisdk.api.OnEditListener;
 import com.tozmart.tozisdk.entity.Profile2ModelData;
 import com.tozmart.tozisdk.utils.BitmapHolder;

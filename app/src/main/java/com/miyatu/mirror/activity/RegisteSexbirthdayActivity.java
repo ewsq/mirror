@@ -22,8 +22,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
 import com.hjq.toast.ToastUtils;
+import com.miyatu.mirror.R;
 
 import java.util.Calendar;
 

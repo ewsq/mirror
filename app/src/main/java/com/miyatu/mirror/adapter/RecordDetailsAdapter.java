@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.RecordDetailsBean;
 
 import java.util.List;

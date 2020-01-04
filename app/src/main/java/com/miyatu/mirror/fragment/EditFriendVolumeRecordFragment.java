@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicFragment;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.adapter.EditFriendVolumeRecordFragmentAdapter;
 import com.miyatu.mirror.bean.BaseBean;
 import com.miyatu.mirror.bean.FriendVolumeRecordFragmentBean;

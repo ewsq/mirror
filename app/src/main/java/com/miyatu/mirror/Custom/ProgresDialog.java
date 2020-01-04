@@ -20,7 +20,8 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
+
 
 /**
  * ================================================

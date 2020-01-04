@@ -5,7 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
+
 
 public class MainActivity extends AppCompatActivity {
 

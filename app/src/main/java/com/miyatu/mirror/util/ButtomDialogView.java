@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
+
 
 /**
  * Created by yhd on 2019/11/23.

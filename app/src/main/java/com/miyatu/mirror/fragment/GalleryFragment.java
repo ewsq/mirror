@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
 import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicFragment;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.activity.CourseListBean;
 
 import java.lang.reflect.Method;

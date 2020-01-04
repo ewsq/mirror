@@ -13,15 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.EditInfoBean;
 import com.miyatu.mirror.bean.UserDatabean;
 import com.miyatu.mirror.http.api.IndexApi;

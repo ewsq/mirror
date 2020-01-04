@@ -9,8 +9,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.R;
 import com.hjq.toast.ToastUtils;
+import com.miyatu.mirror.R;
 
 /**
  * 注册页面，姓名、邮箱

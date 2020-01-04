@@ -9,14 +9,13 @@ import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.myapplication.R;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.fragment.TakePhotoFragment;
 import com.miyatu.mirror.ui.MineFragment;
 import com.miyatu.mirror.ui.VolumRecordFragment;

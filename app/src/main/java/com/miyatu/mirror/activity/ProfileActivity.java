@@ -12,8 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
 import com.miyatu.mirror.Custom.AnimatedPathImageView;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.MeasurementBean;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.tozmart.tozisdk.activity.RxAppCompatActivity;

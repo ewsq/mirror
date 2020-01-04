@@ -6,8 +6,8 @@ import android.os.Parcelable;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
 import com.miyatu.mirror.MyApp;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.MeasurementBean;
 import com.tozmart.tozisdk.activity.RxAppCompatActivity;
 import com.tozmart.tozisdk.api.GetMeasurementsCallback;

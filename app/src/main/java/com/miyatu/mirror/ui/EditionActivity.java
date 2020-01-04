@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 
 /*
 版本号页面

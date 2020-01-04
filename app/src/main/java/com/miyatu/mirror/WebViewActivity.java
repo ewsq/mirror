@@ -7,7 +7,6 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.example.myapplication.R;
 
 public class WebViewActivity extends PublicActivity {
     private WebView webView;

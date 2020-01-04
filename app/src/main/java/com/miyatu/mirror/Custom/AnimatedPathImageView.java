@@ -17,7 +17,7 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
 import com.tozmart.tozisdk.entity.PaintColor;
 
 import java.util.ArrayList;

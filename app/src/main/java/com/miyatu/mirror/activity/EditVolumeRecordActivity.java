@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.R;
 import com.google.android.material.tabs.TabLayout;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.adapter.ViewPagerAdapter;
 import com.miyatu.mirror.fragment.EditFriendVolumeRecordFragment;
 import com.miyatu.mirror.fragment.EditMyVolumeRecordFragment;

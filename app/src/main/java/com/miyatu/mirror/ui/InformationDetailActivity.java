@@ -9,11 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.InformationDetailBean;
 import com.miyatu.mirror.http.api.IndexApi;
 import com.miyatu.mirror.util.LogUtils;
@@ -70,7 +70,6 @@ public class InformationDetailActivity extends PublicActivity implements HttpOnN
     protected void initView() {
         ButterKnife.bind(this);
         rlBack = findViewById(R.id.rl_back);
-
         tvTitle  = findViewById(R.id.tv_title);
         tvDate = findViewById(R.id.tv_date);
         webView = findViewById(R.id.webView);

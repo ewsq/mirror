@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.example.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicActivity;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.AddMeasurementBean;
 import com.miyatu.mirror.bean.MeasurementBean;
 import com.miyatu.mirror.http.api.IndexApi;

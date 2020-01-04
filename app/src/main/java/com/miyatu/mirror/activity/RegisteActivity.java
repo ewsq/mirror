@@ -10,13 +10,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
-import com.miyatu.mirror.bean.SmsBean;
-import com.miyatu.mirror.http.api.IndexApi;
-import com.miyatu.mirror.util.LogUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
+import com.miyatu.mirror.R;
+import com.miyatu.mirror.bean.SmsBean;
+import com.miyatu.mirror.http.api.IndexApi;
+import com.miyatu.mirror.util.LogUtils;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpManager;

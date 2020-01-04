@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
 import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicFragment;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.activity.AccountBind;
 import com.miyatu.mirror.activity.LoginActivity;
 import com.miyatu.mirror.activity.PersonInfo;

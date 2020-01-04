@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.R;
 import com.miyatu.mirror.PublicFragment;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.activity.EditVolumeRecordActivity;
 import com.miyatu.mirror.adapter.FriendVolumeAdapter;
 import com.miyatu.mirror.widget.CommonIndicator;

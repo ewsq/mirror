@@ -11,40 +11,26 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
     }
-
     signingConfigs {
         release {           //发布版本的签名配置
             storeFile file('mirror.jks')
             storePassword '123456'
-            keyAlias 'mirror'
+            keyAlias 'key2'
             keyPassword '123456'
         }
         debug {         //调试版本的签名配置
             storeFile file('mirror.jks')
             storePassword '123456'
-            keyAlias 'mirror'
+            keyAlias 'key2'
             keyPassword '123456'
         }
     }
-
-//    buildTypes {
-//        release {
-//            minifyEnabled true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//        debug {
-//            minifyEnabled false
-////            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.debug
-//        }
-//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -66,6 +52,18 @@ android {
             }
         }
     }
+
+//    buildTypes {
+//        release {
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//        debug {
+//            minifyEnabled false
+////            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.debug
+//        }
+//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
 import com.miyatu.mirror.util.DisplayUtil;
 
 

@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.R;
+import com.miyatu.mirror.R;
+
 
 public class MyFragment extends Fragment {
     @Nullable
