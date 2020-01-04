@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">魔镜</string>
+    <!--splashactivity-->
+    <string name="splash_mj">魔镜</string>
+    <string name="splash_xxx">新体验/新生活/新方式</string>
+    <!--loginactivity-->
+    <string name="login_welcome_title">Hi~欢迎登录</string>
+    <string name="login_account">请输入手机号</string>
+    <string name="login_password">请输入密码</string>
+    <string name="login_btnlogin">登录</string>
+    <string name="login_forgetpasswd">忘记密码</string>
+    <string name="login_registe">立即注册</string>
+    <string name="login_otherwayregiste">———其他方式登录———</string>
+    <string name="login_agreement1">注册就代表您已经同意</string>
+    <string name="login_agreement2">《xxxx协议》</string>
+    <!--registe-->
+    <string name="registe_welcome_title">Hi~欢迎注册</string>
+    <string name="registe_phonenumber">你的手机号：</string>
+    <string name="registe_code">你的验证码：</string>
+    <string name="registe_hint_phonenumber">请输入手机号</string>
+    <string name="registe_hint_code">请输入验证码</string>
+    <string name="registe_req_code">获取验证码</string>
+    <string name="registe_btn_next_step">下一步</string>
+
+    <!--registe_name_email-->
+    <string name="registe_info_name">你的姓名：</string>
+    <string name="registe_info_email">你的邮箱：</string>
+    <string name="registe_info_hint_name">请输入姓名</string>
+    <string name="registe_info_hint_email">请输入邮箱</string>
+
+    <!--registe_sex_birthday-->
+    <string name="registe_sexbirthday_sex">你的性别：</string>
+    <string name="registe_sexbirthday_birthday">你的生日：</string>
+    <string name="registe_sexbirthday_radiobtn_man">男</string>
+    <string name="registe_sexbirthday_radiobtn_woman">女</string>
+    <string name="registe_sexbirthday_hint_birthday">请输入生日</string>
+    <!--dialog_tip_title-->
+    <string name="dialog_tip_title">温馨提示</string>
+    <string name="dialog_tip_content">计算身体尺寸需要你的性别信息，注册后性别信息不可更改</string>
+    <string name="dialog_tip_foot">我知道了</string>
+    <!--registe_height_weight-->
+    <string name="registe_heightweight_height">你的身高：</string>
+    <string name="registe_heightweight_weight">你的体重：</string>
+    <string name="registe_heightweight_hint_height">请输入身高（cm）</string>
+    <string name="registe_heightweight_hint_weight">请输入体重（kg）</string>
+
+    <!--takephoto_gallery-->
+    <string name="gallery_helptakephoto_tip">帮拍教程</string>
+    <string name="gallery_helptakephoto_tipcontent">第一次使用拍照量体的用户，请务必先观看次教程短片，再进行拍照。</string>
+    <!--selfphotomode-->
+    <string name="selfphotomode_bottomtip">请保持设备竖直，不要左右前后倾斜</string>
+    <!--new_volume_data-->
+    <string name="new_volume_data_input_name">输入昵称</string>
+    <string name="new_volume_data_input_hint_name">请输入昵称</string>
+    <string name="new_volume_data_sex">性别</string>
+    <string name="new_volume_data_height">身高</string>
+    <string name="new_volume_data_weight">体重</string>
+    <string name="new_volume_data_save">保存</string>
+</resources>

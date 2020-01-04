@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.miyatu.mirror.ui.FeedbackActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_back"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/icon_back_black"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content">
+
+                </ImageView>
+            </RelativeLayout>
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#181818"
+                android:text="问题反馈"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/tv_edit"
+                android:layout_marginRight="10dp"
+                android:gravity="right"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text="编辑"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <View
+            android:background="#ededed"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            android:layout_marginRight="38dp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="21dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:text="您的手机号："
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_phone"
+                android:inputType="number"
+                android:textColor="#cccccc"
+                android:textSize="16sp"
+                android:background="@null"
+                android:hint="请输入您的手机号"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:paddingBottom="10dp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+            <View
+                android:layout_marginBottom="32dp"
+                android:background="#ededed"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                android:textColor="#666666"
+                android:textSize="16sp"
+                android:text="反馈标题："
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textColor="#666666"
+                android:textSize="16sp"
+                android:background="@null"
+                android:id="@+id/et_feedback_title"
+                android:hint="请输入反馈标题"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:paddingBottom="10dp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+            <View
+                android:layout_marginBottom="32dp"
+                android:background="#ededed"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:text="反馈内容："
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textColor="#666666"
+                android:textSize="16sp"
+                android:background="@drawable/bg_dialog_rect"
+                android:id="@+id/et_feedback_content"
+                android:padding="10dp"
+                android:gravity="top"
+                android:hint=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:minLines="10"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="74dp"
+            android:layout_marginBottom="35dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:text="提交"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/bg_botton"
+            android:id="@+id/tv_commit"
+            android:layout_width="305dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

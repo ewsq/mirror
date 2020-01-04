@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_img"
+        android:src="@mipmap/icon_information_img"
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/tv_title"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        android:text="更新了一下功能，修改了一些bug"
+        android:background="@drawable/bg_rentangle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+</LinearLayout>

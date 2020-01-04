@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <color name="default_corlor">#0E4E60</color>
+    <color name="default_white_corlor">#FFFFFF</color>
+    <color name="default_white_black">#333333</color>
+    <color name="default_white_gray">#ffaaaaaa</color>
+    <color name="default_white_blue">#57B3DF</color>
+    <color name="home_tab_unselect_fontcolor">#999999</color>
+    <color name="cardview_bg">#F6F6F6</color>
+</resources>

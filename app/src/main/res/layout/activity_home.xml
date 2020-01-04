@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.miyatu.mirror.activity.HomeActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_homefragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tabbar"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="#F9F9F9"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_record_tabitem"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F9F9F9"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tab_select_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    style="@style/tabstyle"
+                    android:src="@mipmap/record_select" />
+
+                <TextView
+                    style="@style/tabstyle"
+                    android:text="记录"
+                    android:textColor="@color/default_corlor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab_unselect_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    style="@style/tabstyle"
+                    android:src="@mipmap/record_unselect" />
+
+                <TextView
+                    style="@style/tabstyle"
+                    android:text="记录"
+                    android:textColor="@color/home_tab_unselect_fontcolor" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_takephoto_tabitem"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tab_select_takephoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    style="@style/tabstyle"
+                    android:src="@mipmap/takephoto_select" />
+
+                <TextView
+                    style="@style/tabstyle"
+                    android:text="拍照"
+                    android:textColor="@color/default_corlor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab_unselect_takephoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/takephoto_unselect_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="22.5dp"
+                    android:layout_height="17.5dp"
+                    android:layout_marginRight="4dp"
+                    android:src="@mipmap/takephoto_unselect" />
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="18dp"
+                    android:text="拍照"
+                    android:textColor="@color/default_white_corlor"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_my_tabitem"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tab_select_my"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    style="@style/tabstyle"
+                    android:src="@mipmap/myselect" />
+
+                <TextView
+                    style="@style/tabstyle"
+                    android:text="我的"
+                    android:textColor="@color/default_corlor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab_unselect_my"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    style="@style/tabstyle"
+                    android:src="@mipmap/myunselect" />
+
+                <TextView
+                    style="@style/tabstyle"
+                    android:text="我的"
+                    android:textColor="@color/home_tab_unselect_fontcolor" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

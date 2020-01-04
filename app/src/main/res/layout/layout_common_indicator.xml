@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal">
+
+    <View
+        android:background="#00000000"
+        android:layout_weight="1"
+        android:layout_height="1dp"
+        android:layout_width="0dp">
+
+    </View>
+
+    <RelativeLayout
+        android:id="@+id/ll_layout_indicator_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/tv_text_others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_tips1"
+            android:layout_marginTop="-10dp"
+            android:text="他人评价"
+            android:textColor="#ff000000"
+            android:textSize="13sp" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/text_tips1"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/tv_text_others"
+            android:background="#cccc"
+            android:gravity="center"
+            android:minWidth="15dp"
+            android:text="3"
+            android:textColor="#ffffffff"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <View
+        android:background="#00000000"
+        android:layout_weight="1"
+        android:layout_height="1dp"
+        android:layout_width="0dp">
+
+    </View>
+
+    <RelativeLayout
+        android:id="@+id/ll_layout_indicator_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/text_tips2"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@+id/tv_text_my"
+            android:background="#ccc"
+            android:gravity="center"
+            android:minWidth="15dp"
+            android:text="3"
+            android:textColor="#ffffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_text_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_tips2"
+            android:layout_marginTop="-10dp"
+            android:text="我的评价"
+            android:textColor="#686868"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <View
+        android:background="#00000000"
+        android:layout_weight="1"
+        android:layout_height="1dp"
+        android:layout_width="0dp">
+
+    </View>
+
+
+</LinearLayout>

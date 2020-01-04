@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_dialog_rect"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_sex_item"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/icon_men" />
+            <ImageView
+                android:visibility="gone"
+                android:background="@drawable/bg_circular"
+                android:id="@+id/iv_edit_noselection_item"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+
+                android:textColor="#575757"
+                android:id="@+id/tv_name_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="张家华"
+                android:textSize="15sp" />
+            <TextView
+
+                android:textColor="#575757"
+                android:id="@+id/tv_height_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="170cm"
+                android:textSize="13sp" />
+            <TextView
+
+                android:gravity="right"
+                android:textColor="#575757"
+                android:id="@+id/tv_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="查看更多>"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="胸围：40cm"
+                    android:id="@+id/tv_bust_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="臀围：40cm"
+                    android:id="@+id/tv_Hipline_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="袖长：40cm"
+                    android:id="@+id/tv_sleeve_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:layout_marginTop="20dp"
+                android:background="#ccc"
+                android:layout_gravity="center"
+                android:layout_width="0.5dp"
+                android:layout_marginBottom="20dp"
+                android:layout_height="match_parent">
+
+            </View>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="腰围：40cm"
+                    android:id="@+id/tv_waist_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="肩长：40cm"
+                    android:id="@+id/tv_shoulder_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="裤长：40cm"
+                    android:id="@+id/tv_trousers_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

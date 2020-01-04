@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tozmart.tozisdk.view.EditOutlineView
+        android:id="@+id/photo_drawee_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:placeholderImage="@drawable/ic_image_gray_24dp"
+        app:placeholderImageScaleType="fitCenter" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/done_btn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_tick_white_24dp"
+        app:backgroundTint="@color/colorAccent"
+        app:rippleColor="@color/colorAccent"
+        app:fabSize="auto"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/undo_btn"
+        android:layout_toStartOf="@+id/done_btn"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_undo_white_24dp_btn"
+        app:backgroundTint="@color/colorAccent"
+        app:rippleColor="@color/colorAccent"
+        app:fabSize="auto"
+        android:visibility="gone" />
+
+<!--    <android.support.design.widget.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/done_btn"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginBottom="12dp"-->
+<!--        android:layout_marginEnd="12dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:src="@drawable/ic_tick_white_24dp"-->
+<!--        app:backgroundTint="@color/colorAccent"-->
+<!--        app:rippleColor="@color/colorAccent"-->
+<!--        app:fabSize="auto"/>-->
+
+<!--    <android.support.design.widget.FloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/undo_btn"-->
+<!--        android:layout_toStartOf="@+id/done_btn"-->
+<!--        android:layout_marginBottom="12dp"-->
+<!--        android:layout_marginEnd="12dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:src="@drawable/ic_undo_white_24dp_btn"-->
+<!--        app:backgroundTint="@color/colorAccent"-->
+<!--        app:rippleColor="@color/colorAccent"-->
+<!--        app:fabSize="auto"-->
+<!--        android:visibility="gone"/>-->
+
+</RelativeLayout>

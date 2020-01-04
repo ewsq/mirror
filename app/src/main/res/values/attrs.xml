@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CommonIndicator">
+        <attr name="indiText01" format="string" />
+        <attr name="indiText02" format="string" />
+        <attr name="indiWidth" format="dimension" />
+        <attr name="indiIndex" format="integer" />
+    </declare-styleable>
+</resources>
