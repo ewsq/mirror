@@ -95,6 +95,7 @@ dependencies {
     implementation 'androidx.versionedparcelable:versionedparcelable:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    testImplementation 'junit:junit:4.12'
     implementation 'com.google.android.material:material:1.0.0'
     //量体sdk依赖
     implementation 'com.tozmart:tozmartSDK-s5:2.3.8'
