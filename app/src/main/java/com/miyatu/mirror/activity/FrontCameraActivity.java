@@ -73,6 +73,19 @@ public class FrontCameraActivity extends RxAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_camera);
 
+        new OneMeasureSDKLite.Builder()
+                .withActivity(FrontCameraActivity.this)
+                .setAppKey("281474788982530048191216143600")
+                .setAppSecret("44666d8b931c5882cb7ddade3e668b19")
+                .setName(getIntent().getExtras().getString("userName"))
+                .setGender(getIntent().getExtras().getInt("gender"))
+                .setHeight(getIntent().getExtras().getInt("height"))
+                .setWeight(getIntent().getExtras().getInt("weight"))
+                .setUserId(String.valueOf(getIntent().getExtras().getInt("relativeID")))
+                .setLanguage(Language.CHINESE)
+                .setUnit(Unit.METRIC)
+                .build();
+
         initPopWindow();
 
         ivHelp = findViewById(R.id.ivHelp);
@@ -82,6 +95,7 @@ public class FrontCameraActivity extends RxAppCompatActivity {
         tvUserName = findViewById(R.id.tvUserName);
         tvUserHeight = findViewById(R.id.tvUserHeight);
         tvCannotTakePhoto = findViewById(R.id.tvCannotTakePhoto);
+
 
         progresDialog = new ProgresDialog(this);
 
@@ -95,21 +109,14 @@ public class FrontCameraActivity extends RxAppCompatActivity {
                 break;
         }
 
+        initSensorListener();
+
         cameraView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 cameraView.setTranslationY(-ScreenUtils.getScreenHeight(FrontCameraActivity.this) * 0.25f);
             }
         });
-
-        initSensorListener();
-
-//        userName = getIntent().getStringExtra("userName");
-//        gender = getIntent().getIntExtra("gender", 0);
-//        height = getIntent().getIntExtra("height", 0);
-//        weight = getIntent().getIntExtra("weight", 0);
-//        relativeID = getIntent().getIntExtra("relativeID", 0);
-//        initOneMeasureSDKLite(userName, gender, height, weight, String.valueOf(relativeID));
 
         tvUserName.setText(getIntent().getExtras().getString("userName"));
         tvUserHeight.setText(getIntent().getExtras().getString("height"));
@@ -300,18 +307,4 @@ public class FrontCameraActivity extends RxAppCompatActivity {
         super.onDestroy();
     }
 
-    private void initOneMeasureSDKLite(String name, int gender, int height, int weight, String relativeID) {
-        new OneMeasureSDKLite.Builder()
-                .withActivity(FrontCameraActivity.this)
-                .setAppKey("281474788982530048191216143600")
-                .setAppSecret("44666d8b931c5882cb7ddade3e668b19")
-                .setName(name)
-                .setGender(gender)
-                .setHeight(height)
-                .setWeight(weight)
-                .setUserId(relativeID)
-                .setLanguage(Language.CHINESE)
-                .setUnit(Unit.METRIC)
-                .build();
-    }
 }

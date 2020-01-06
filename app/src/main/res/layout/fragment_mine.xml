@@ -146,6 +146,7 @@
                 android:paddingRight="20dp"
                 android:paddingLeft="25dp"
                 android:orientation="horizontal"
+                android:visibility="gone"
 
                 android:layout_width="match_parent"
                 android:layout_height="50dp">

@@ -272,6 +272,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                         Bundle bundle = new Bundle();
                         bundle.putInt("apiType", MyApp.IMAGE2MEASURE);
                         bundle.putString("userName", dataBean.getRelative());
+                        bundle.putInt("gender", dataBean.getGender());
                         bundle.putString("height", dataBean.getHeight());
                         bundle.putInt("relativeID", dataBean.getId());
                         bundle.putInt("cameraFacing", cameraFacing);
@@ -290,7 +291,8 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 Bundle bundle = new Bundle();
                 bundle.putInt("apiType", MyApp.IMAGE2MEASURE);
                 bundle.putString("userName", relativeBean.getRelative());
-                bundle.putString("height", getUserDataBean().getRelative().getHeight());
+                bundle.putInt("gender", relativeBean.getGender());
+                bundle.putString("height", relativeBean.getHeight());
                 bundle.putInt("relativeID", relativeBean.getRelative_id());
                 bundle.putInt("cameraFacing", cameraFacing);
 

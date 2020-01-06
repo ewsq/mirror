@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,7 +35,6 @@ import org.greenrobot.eventbus.ThreadMode;
  * Email 1443160259@qq.com
  */
 public class MineFragment extends PublicFragment implements View.OnClickListener {
-    private RelativeLayout rlBack;
     private ImageView ivInformation;
     private ImageView ivHead;
     private TextView tvMineName;
@@ -57,6 +56,8 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
     private PopupWindow popVolume;
     private PopupWindow popShare;
 
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_mine;
@@ -64,7 +65,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
 
     @Override
     protected void initView(View view) {
-        rlBack = view.findViewById(R.id.rl_back);
+
         llMineAdmin = view.findViewById(R.id.ll_mine_admin);
         llMineEdition = view.findViewById(R.id.ll_mine_edition);
         llMineQuestion = view.findViewById(R.id.ll_mine_question);
@@ -91,7 +92,6 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
     protected void initEvent() {
         llMineSound.setOnClickListener(this);
         llMineAdmin.setOnClickListener(this);
-        rlBack.setOnClickListener(this);
         llMineShare.setOnClickListener(this);
         llMineQuestion.setOnClickListener(this);
         llMineEdition.setOnClickListener(this);
@@ -126,7 +126,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
                 ScreenUtils.dimBackground(getActivity(),1f,0.5f);       //屏幕亮度变化
                 popShare.showAtLocation(view, Gravity.BOTTOM, 0, 0);
                 break;
-            case R.id.ll_mine_sound:            //声音
+            case R.id.ll_mine_sound:            //自拍音量
                 ScreenUtils.dimBackground(getActivity(),1f,0.5f);       //屏幕亮度变化
                 popVolume.showAtLocation(getActivity().getWindow().getDecorView(), Gravity.CENTER, 0, 0);
                 break;
