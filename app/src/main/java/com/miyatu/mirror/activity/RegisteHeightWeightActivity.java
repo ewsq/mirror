@@ -101,11 +101,11 @@ public class RegisteHeightWeightActivity extends RxAppCompatActivity implements 
                 String weight = et_weight.getText().toString().trim();
                 if (height == null || height.equals("")) {
                     ToastUtils.show("请输入身高");
-                    break;
+                    return;
                 }
                 if (weight == null || weight.equals("")) {
                     ToastUtils.show("请输入体重");
-                    break;
+                    return;
                 }
 //                Intent intent=new Intent(RegisteHeightWeightActivity.this,HomeActivity.class);
 //                startActivity(intent);

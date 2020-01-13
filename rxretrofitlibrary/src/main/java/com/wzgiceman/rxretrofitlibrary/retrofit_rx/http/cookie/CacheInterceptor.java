@@ -1,7 +1,7 @@
 package com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.cookie;
 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
-import com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils.AppUtil;
+import com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils.AppUtil; 
 
 import java.io.IOException;
 

@@ -2,7 +2,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.upload;
 
 /**
  * 上传进度回调类
- * Created by WZG on 2016/10/20.
+ * Created by WZG on 2016/10/20. 
  */ 
 
 public interface UploadProgressListener {

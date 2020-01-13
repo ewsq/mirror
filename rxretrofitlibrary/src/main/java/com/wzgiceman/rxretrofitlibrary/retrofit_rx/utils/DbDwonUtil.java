@@ -13,7 +13,7 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.HttpDownManager;
 import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
- 
+
 
 /**
  * 断点续传

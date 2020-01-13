@@ -1,7 +1,7 @@
 package com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod;
 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownLoadListener.DownloadInterceptor;
-import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.HttpTimeException;
+import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.HttpTimeException; 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.RetryWhenNetworkException;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpDownService;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.subscribers.ProgressDownSubscriber;

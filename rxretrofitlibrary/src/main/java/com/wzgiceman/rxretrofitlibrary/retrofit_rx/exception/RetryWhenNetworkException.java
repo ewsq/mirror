@@ -3,7 +3,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeUnit; 
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.TimeoutException; 
 
 import rx.Observable;
 import rx.functions.Func1;

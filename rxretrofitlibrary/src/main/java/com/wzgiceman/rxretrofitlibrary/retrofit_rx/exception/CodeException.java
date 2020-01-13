@@ -5,7 +5,7 @@ import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
  
-
+ 
 /**
  * 自定义错误code类型:注解写法
  * <p>

@@ -97,6 +97,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.12'
     //量体sdk依赖
     implementation 'com.tozmart:tozmartSDK-s5:2.3.8'
     //图片加载——Glide

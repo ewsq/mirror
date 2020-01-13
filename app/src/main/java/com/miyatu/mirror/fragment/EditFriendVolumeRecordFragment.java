@@ -28,6 +28,7 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpManager;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -150,6 +151,8 @@ public class EditFriendVolumeRecordFragment extends PublicFragment implements Ht
         refreshLayout.setOnRefreshListener(() -> {
             isRefreshing = true;
             page = 1;
+            isSelectAll = false;
+            ivSelectAll.setImageResource(R.mipmap.unselected);
             initRequest();
         });
     }
@@ -244,6 +247,7 @@ public class EditFriendVolumeRecordFragment extends PublicFragment implements Ht
                 isSelectAll = false;
                 ivSelectAll.setImageResource(R.mipmap.unselected);
                 page = 1;
+                EventBus.getDefault().post(CommonUtils.REFRESH);
                 initRequest();
                 return;
             }

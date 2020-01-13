@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -92,13 +91,6 @@ public class SideCameraActivity extends RxAppCompatActivity {
                 break;
         }
 
-        cameraView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                cameraView.setTranslationY(-ScreenUtils.getScreenHeight(SideCameraActivity.this) * 0.25f);
-            }
-        });
-
 
         progresDialog = new ProgresDialog(this);
 
@@ -147,8 +139,9 @@ public class SideCameraActivity extends RxAppCompatActivity {
         int width = ScreenUtils.getScreenWidth(SideCameraActivity.this);
         int height = ScreenUtils.getScreenHeight(SideCameraActivity.this);
         popupWindow = new PopupWindow(view, width*3/5, height/3);
-        popupWindow.setFocusable(false);
-        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(false);
         popupWindow.setClippingEnabled(false);
     }
 

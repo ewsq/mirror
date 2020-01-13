@@ -2,7 +2,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception;
 
 
 import org.json.JSONException;
-import java.net.ConnectException; 
+import java.net.ConnectException;  
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.text.ParseException;

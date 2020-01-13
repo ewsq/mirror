@@ -1,7 +1,7 @@
 package com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod;
 
 /**
- * 下载状态
+ * 下载状态 
  * Created by WZG on 2016/10/21. 
  */
 

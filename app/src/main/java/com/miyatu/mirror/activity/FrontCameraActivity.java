@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -22,6 +21,7 @@ import com.miyatu.mirror.R;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.tozmart.tozisdk.activity.RxAppCompatActivity;
 import com.tozmart.tozisdk.api.ProcessCallback;
+import com.tozmart.tozisdk.constant.Gender;
 import com.tozmart.tozisdk.constant.Language;
 import com.tozmart.tozisdk.constant.PhotoType;
 import com.tozmart.tozisdk.constant.SDKCode;
@@ -78,7 +78,7 @@ public class FrontCameraActivity extends RxAppCompatActivity {
                 .setAppKey("281474788982530048191216143600")
                 .setAppSecret("44666d8b931c5882cb7ddade3e668b19")
                 .setName(getIntent().getExtras().getString("userName"))
-                .setGender(getIntent().getExtras().getInt("gender"))
+                .setGender(getIntent().getExtras().getInt("gender") == 1? Gender.MALE : Gender.FEMALE)
                 .setHeight(getIntent().getExtras().getInt("height"))
                 .setWeight(getIntent().getExtras().getInt("weight"))
                 .setUserId(String.valueOf(getIntent().getExtras().getInt("relativeID")))
@@ -96,7 +96,6 @@ public class FrontCameraActivity extends RxAppCompatActivity {
         tvUserHeight = findViewById(R.id.tvUserHeight);
         tvCannotTakePhoto = findViewById(R.id.tvCannotTakePhoto);
 
-
         progresDialog = new ProgresDialog(this);
 
         cameraFacing = getIntent().getExtras().getInt("cameraFacing");
@@ -111,15 +110,8 @@ public class FrontCameraActivity extends RxAppCompatActivity {
 
         initSensorListener();
 
-        cameraView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                cameraView.setTranslationY(-ScreenUtils.getScreenHeight(FrontCameraActivity.this) * 0.25f);
-            }
-        });
-
         tvUserName.setText(getIntent().getExtras().getString("userName"));
-        tvUserHeight.setText(getIntent().getExtras().getString("height"));
+        tvUserHeight.setText(getIntent().getExtras().getString("height") + "cm");
 
         ivHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,8 +186,9 @@ public class FrontCameraActivity extends RxAppCompatActivity {
         int width = ScreenUtils.getScreenWidth(FrontCameraActivity.this);
         int height = ScreenUtils.getScreenHeight(FrontCameraActivity.this);
         popupWindow = new PopupWindow(view, width*3/5, height/3);
-        popupWindow.setFocusable(false);
-        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(false);
         popupWindow.setClippingEnabled(false);
     }
 

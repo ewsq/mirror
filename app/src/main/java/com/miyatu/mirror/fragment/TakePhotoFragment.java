@@ -248,8 +248,9 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
         int width = ScreenUtils.getScreenWidth(getActivity());
         int height = ScreenUtils.getScreenHeight(getActivity());
         popupWindow = new PopupWindow(view, width*3/4, height/2);
-        popupWindow.setFocusable(false);
-        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(false);
         popupWindow.setClippingEnabled(false);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {          //popupWindow消失时
             @Override

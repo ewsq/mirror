@@ -229,9 +229,10 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
     private void initHeightPop() {
         View view = LayoutInflater.from(PersonInfo.this).inflate(R.layout.pop_num_picker,null);
         popHeight = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popHeight.setOutsideTouchable(true);
-        popHeight.setClippingEnabled(false);
         popHeight.setFocusable(true);
+        popHeight.setTouchable(true);
+        popHeight.setOutsideTouchable(false);
+        popHeight.setClippingEnabled(false);
 
         popHeight.setOnDismissListener(new PopupWindow.OnDismissListener() {          //popupWindow消失时
             @Override
@@ -271,9 +272,10 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
     private void initWeightPop() {
         View view = LayoutInflater.from(PersonInfo.this).inflate(R.layout.pop_num_picker,null);
         popWeight = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popWeight.setOutsideTouchable(true);
-        popWeight.setClippingEnabled(false);
         popWeight.setFocusable(true);
+        popWeight.setTouchable(true);
+        popWeight.setOutsideTouchable(false);
+        popWeight.setClippingEnabled(false);
 
         popWeight.setOnDismissListener(new PopupWindow.OnDismissListener() {          //popupWindow消失时
             @Override
@@ -313,9 +315,10 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
     private void initDatePickerPop() {
         View datePickerView = LayoutInflater.from(PersonInfo.this).inflate(R.layout.pop_date_picker,null);
         popDate = new PopupWindow(datePickerView, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popDate.setOutsideTouchable(true);
-        popDate.setClippingEnabled(false);
         popDate.setFocusable(true);
+        popDate.setTouchable(true);
+        popDate.setOutsideTouchable(false);
+        popDate.setClippingEnabled(false);
 
         popDate.setOnDismissListener(new PopupWindow.OnDismissListener() {          //popupWindow消失时
             @Override

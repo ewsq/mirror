@@ -8,20 +8,20 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownInfo;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.RandomAccessFile; 
 import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel; 
+import java.nio.channels.FileChannel;  
 
 import okhttp3.ResponseBody;
 
 /**
- * ·½·¨¹¤¾ßÀà
+ * æ–¹æ³•å·¥å…·ç±»
  * Created by WZG on 2016/10/31.
  */
 
 public class AppUtil {
     /**
-     * ÃèÊö£ºÅĞ¶ÏÍøÂçÊÇ·ñÓĞĞ§.
+     * æè¿°ï¼šåˆ¤æ–­ç½‘ç»œæ˜¯å¦æœ‰æ•ˆ.
      *
      * @return true, if is network available
      */
@@ -45,7 +45,7 @@ public class AppUtil {
 
 
     /**
-     * ¶ÁÈ¡baseurl
+     * è¯»å–baseurl
      * @param url
      * @return
      */
@@ -65,7 +65,7 @@ public class AppUtil {
 
 
     /**
-     * Ğ´ÈëÎÄ¼ş
+     * å†™å…¥æ–‡ä»¶
      * @param file
      * @param info
      * @throws IOException

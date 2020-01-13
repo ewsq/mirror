@@ -4,7 +4,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception;
  * 回调统一请求异常
  * Created by WZG on 2016/12/12. 
  */
-
+ 
 public class ApiException extends Exception{
     /*错误码*/
     private int code;

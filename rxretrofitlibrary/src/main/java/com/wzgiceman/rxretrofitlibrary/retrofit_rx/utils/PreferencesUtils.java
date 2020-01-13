@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Set; 
 
 /**
  * Used 临时存储数据操作类（全）

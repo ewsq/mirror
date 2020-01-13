@@ -32,12 +32,12 @@ import java.util.Calendar;
  */
 public class RegisteSexbirthdayActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private RadioGroup radiogroup_sex;
-    private TextView radiotext_sex_man=null,radiotext_sex_woman=null;
+    private TextView radiotext_sex_man = null,radiotext_sex_woman = null;
     private TextView tv_birthday=null;
     private Button btn_nextstep=null;
     private ImageView iv_back=null;
 
-    private int selectSex = 0;       //保密 1男 2女
+    private int sex;       //保密 1男 2女
 
     private AlertDialog dialog = null;
     private  TextView dialog_tip_iknow=null;
@@ -86,25 +86,8 @@ public class RegisteSexbirthdayActivity extends AppCompatActivity implements Vie
         email = getIntent().getStringExtra("email");
 
 
-        selectSex = 1;          //设置默认为男性
+        sex = 1;          //初始默认为男性
         changeRadiotextStatus();//初始化时获取 selectSex的值来改变字体状态
-    }
-
-    /**
-     * 根据选择的radiobutton改变radiobutton_text的颜色
-     */
-    private void changeRadiotextStatus() {
-        if (selectSex == 1){
-            radiotext_sex_man.setText("男");
-            radiotext_sex_woman.setHint("");
-            radiotext_sex_woman.setText("");
-            radiotext_sex_woman.setHint("女");
-        }else {
-            radiotext_sex_man.setText("");
-            radiotext_sex_man.setHint("男");
-            radiotext_sex_woman.setText("女");
-            radiotext_sex_woman.setHint("");
-        }
     }
 
     /**
@@ -170,35 +153,19 @@ public class RegisteSexbirthdayActivity extends AppCompatActivity implements Vie
                 intent.putExtra("nickname", nickName);
                 intent.putExtra("email", email);
                 intent.putExtra("birthday", birthday);
-                intent.putExtra("sex", selectSex);
+                intent.putExtra("sex", sex);
                 startActivity(intent);
                 break;
             }
         }
     }
 
-    /**onCheckedChanged() ，radioButton的监听回调
-     * @param group 性别选择的RadioGroup
-     * @param checkedId  选择的radioButton 的checkedId
-     */
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.registe_radio_sex_man:
-                selectSex = 1;
-                break;
-            case R.id.registe_radio_sex_woman:
-                selectSex = 2;
-                break;
-        }
-        changeRadiotextStatus();
-    }
-
     private void initPop() {
         View datePickerView = LayoutInflater.from(RegisteSexbirthdayActivity.this).inflate(R.layout.pop_date_picker,null);
         popupWindow = new PopupWindow(datePickerView, ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popupWindow.setFocusable(false);
-        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(false);
         popupWindow.setClippingEnabled(false);
 
         DatePicker datePicker = datePickerView.findViewById(R.id.datePicker);
@@ -222,5 +189,39 @@ public class RegisteSexbirthdayActivity extends AppCompatActivity implements Vie
                 popupWindow.dismiss();
             }
         });
+    }
+
+    /**onCheckedChanged() ，radioButton的监听回调
+     * @param group 性别选择的RadioGroup
+     * @param checkedId  选择的radioButton 的checkedId
+     */
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.registe_radio_sex_man:
+                sex = 1;
+                break;
+            case R.id.registe_radio_sex_woman:
+                sex = 2;
+                break;
+        }
+        changeRadiotextStatus();
+    }
+
+    /**
+     * 根据选择的radiobutton改变radiobutton_text的颜色
+     */
+    private void changeRadiotextStatus() {
+        if (sex == 1){
+            radiotext_sex_man.setText("男");
+            radiotext_sex_woman.setHint("");
+            radiotext_sex_woman.setText("");
+            radiotext_sex_woman.setHint("女");
+        }else {
+            radiotext_sex_man.setText("");
+            radiotext_sex_man.setHint("男");
+            radiotext_sex_woman.setText("女");
+            radiotext_sex_woman.setHint("");
+        }
     }
 }

@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.miyatu.mirror.bean.UserDatabean;
 import com.google.gson.Gson;
+import com.miyatu.mirror.bean.UserDatabean;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils.PreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -23,6 +23,7 @@ public abstract class PublicFragment<T> extends Fragment {
     protected boolean isRefreshing = false;
     protected boolean isLoadMore = false;
     private int position;
+
 
     @Nullable
     @Override
@@ -40,6 +41,11 @@ public abstract class PublicFragment<T> extends Fragment {
 
         if (!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override

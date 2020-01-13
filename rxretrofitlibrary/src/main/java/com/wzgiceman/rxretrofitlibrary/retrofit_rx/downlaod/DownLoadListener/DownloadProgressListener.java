@@ -2,7 +2,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownLoadListener;
 
 
 /**
- * 成功回调处理
+ * 成功回调处理 
  * Created by WZG on 2016/10/20. 
  */
 public interface DownloadProgressListener {

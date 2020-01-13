@@ -3,7 +3,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.Api;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
 
 import retrofit2.Retrofit;
-import rx.Observable;
+import rx.Observable; 
 
 /**
  * 请求数据统一封装类

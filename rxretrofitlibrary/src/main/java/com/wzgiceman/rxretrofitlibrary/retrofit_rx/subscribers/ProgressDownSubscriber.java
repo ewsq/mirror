@@ -3,7 +3,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.subscribers;
 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownInfo; 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownLoadListener.DownloadProgressListener;
-import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownState;
+import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DownState; 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.HttpDownManager;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpDownOnNextListener;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils.DbDwonUtil;

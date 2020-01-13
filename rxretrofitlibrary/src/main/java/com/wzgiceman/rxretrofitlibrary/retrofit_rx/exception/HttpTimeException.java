@@ -1,7 +1,7 @@
 package com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception;
 
 /**
- * 运行时自定义错误信息
+ * 运行时自定义错误信息 
  * 自由添加错误，需要自己扩展
  * Created by WZG on 2016/7/16. 
  */

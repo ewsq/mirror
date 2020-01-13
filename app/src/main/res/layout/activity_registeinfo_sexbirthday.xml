@@ -62,8 +62,8 @@
                         android:background="@drawable/sex_man_secect"
                         android:button="@null"
                         android:tag="@string/registe_sexbirthday_radiobtn_man"
-                        android:textSize="16sp"
-                      />
+                        android:checked="true"
+                        android:textSize="16sp" />
                     <TextView
                         android:id="@+id/registe_radiotext_sex_man"
                         android:layout_width="45dp"

@@ -1,8 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -53,33 +52,35 @@
                 card_view:cardCornerRadius="15dp"
                 card_view:cardMaxElevation="4px"
                 card_view:cardUseCompatPadding="true">
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-<!--                    <VideoView-->
-<!--                        android:id="@+id/videoview_helptakephoto"-->
+
+<!--                <FrameLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+
+<!--                    <WebView-->
+<!--                        android:id="@+id/webView"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent" />-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/iv_videoview_preview"-->
 <!--                        android:layout_width="match_parent"-->
 <!--                        android:layout_height="match_parent"-->
-<!--                        android:background="#E9E9E9" />-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:scaleType="fitXY"/>-->
+<!--                    <ImageView-->
+<!--                        android:id="@+id/iconVideo"-->
+<!--                        android:layout_width="50dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:src="@mipmap/pre_video"-->
+<!--                        android:layout_gravity="center"/>-->
+<!--                </FrameLayout>-->
 
-                    <WebView
-                        android:id="@+id/webView"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                <cn.jzvd.JZVideoPlayerStandard
+                    android:id="@+id/videoPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
-                    <ImageView
-                        android:id="@+id/iv_videoview_preview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"/>
-                    <ImageView
-                        android:id="@+id/iconVideo"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/pre_video"
-                        android:layout_gravity="center"/>
-                </FrameLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

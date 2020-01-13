@@ -2,7 +2,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod;
 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpDownService;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpDownOnNextListener;
-
+ 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Transient;

@@ -3,7 +3,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx;
 import android.app.Application;
 
 /**
- * 全局app
+ * 全局app 
  * Created by WZG on 2016/12/12.
  */
 

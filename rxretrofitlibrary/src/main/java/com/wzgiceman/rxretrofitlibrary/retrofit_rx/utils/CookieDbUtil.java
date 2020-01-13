@@ -2,7 +2,7 @@ package com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-
+ 
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.RxRetrofitApp;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DaoMaster;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.downlaod.DaoSession;

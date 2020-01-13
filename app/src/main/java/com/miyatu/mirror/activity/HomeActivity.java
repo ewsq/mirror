@@ -20,6 +20,8 @@ import com.miyatu.mirror.fragment.TakePhotoFragment;
 import com.miyatu.mirror.ui.MineFragment;
 import com.miyatu.mirror.ui.VolumRecordFragment;
 
+import cn.jzvd.JZVideoPlayer;
+
 /**
  * 首页activity
  */
@@ -173,6 +175,9 @@ public class HomeActivity extends PublicActivity implements View.OnClickListener
         AudioManager audioManager  = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
+                if (!JZVideoPlayer.backPress()) {
+                    JZVideoPlayer.backPress();
+                }
                 if (mIsExit == false) {
                     mIsExit = true;
                     ToastUtils.show("再按一次退出");

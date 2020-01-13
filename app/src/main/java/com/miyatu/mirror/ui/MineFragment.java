@@ -103,7 +103,6 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
 
     @Override
     protected void updateView() {
-
     }
 
     @Override
@@ -180,9 +179,10 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         ivShareQQ = view.findViewById(R.id.iv_share_qq);
         ll = view.findViewById(R.id.ll);
 
-        popShare.setOutsideTouchable(true);
-        popShare.setClippingEnabled(false);
         popShare.setFocusable(true);
+        popShare.setTouchable(true);
+        popShare.setOutsideTouchable(false);
+        popShare.setClippingEnabled(false);
 
         ivShareWeixinFriendCircle.setOnClickListener(new View.OnClickListener() {           //分享到微信朋友圈
             @Override
@@ -234,9 +234,10 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         ivSoundOpen =  view.findViewById(R.id.iv_sound_open);
         ivSoundClose = view.findViewById(R.id.iv_sound_close);
 
-        popVolume.setOutsideTouchable(true);
-        popVolume.setClippingEnabled(false);
         popVolume.setFocusable(true);
+        popVolume.setTouchable(true);
+        popVolume.setOutsideTouchable(false);
+        popVolume.setClippingEnabled(false);
 
         //设置popupWindow里的按钮的事件
         llOpen.setOnClickListener(new View.OnClickListener() {

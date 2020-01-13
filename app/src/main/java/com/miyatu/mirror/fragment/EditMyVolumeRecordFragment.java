@@ -28,6 +28,7 @@ import com.wzgiceman.rxretrofitlibrary.retrofit_rx.exception.ApiException;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.http.HttpManager;
 import com.wzgiceman.rxretrofitlibrary.retrofit_rx.listener.HttpOnNextListener;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -152,6 +153,8 @@ public class EditMyVolumeRecordFragment extends PublicFragment implements HttpOn
         refreshLayout.setOnRefreshListener(() -> {
             isRefreshing = true;
             page = 1;
+            isSelectAll = false;
+            ivSelectAll.setImageResource(R.mipmap.unselected);
             initRequest();
         });
     }
@@ -247,6 +250,7 @@ public class EditMyVolumeRecordFragment extends PublicFragment implements HttpOn
                 ivSelectAll.setImageResource(R.mipmap.unselected);
                 page = 1;
                 initRequest();
+                EventBus.getDefault().post(CommonUtils.REFRESH);
                 return;
             }
             ToastUtils.show(data.getMsg());
