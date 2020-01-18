@@ -174,7 +174,7 @@ public class EditFriendVolumeRecordFragment extends PublicFragment implements Ht
                 FriendVolumeRecordFragmentBean.DataBean dataBean = (FriendVolumeRecordFragmentBean.DataBean)adapter.getData().get(position);
                 switch (view.getId()) {
                     case R.id.tv_pay:
-                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), Double.parseDouble(dataBean.getPrice()));
+                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), dataBean.getRelative_id());
                         break;
                     case R.id.tv_more:
                         RecordDetailsActivity.startActivity(getActivity(), dataBean.getRelative_id(), dataBean.getId());
@@ -258,6 +258,7 @@ public class EditFriendVolumeRecordFragment extends PublicFragment implements Ht
     @Override
     public void onError(ApiException e) {
         LogUtils.i(e.getMessage());
+        ToastUtils.show(e.getMessage());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

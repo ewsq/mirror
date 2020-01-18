@@ -80,7 +80,7 @@ public class SideCameraActivity extends RxAppCompatActivity {
         }
 
         tvUserName.setText(userName);
-        tvUserHeight.setText(height + "");
+        tvUserHeight.setText(height + "cm");
 
         switch (cameraFacing) {
             case MyApp.FACING_BACK:

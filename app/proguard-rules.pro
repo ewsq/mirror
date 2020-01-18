@@ -22,3 +22,4 @@
 
 -keep class com.tozmart.tozmartsdk_s6.** { *; }
 -keep class com.tozmart.tozisdk.** { *; }
+-keep class com.tozmart.tozisdk_withpose.** { *; }

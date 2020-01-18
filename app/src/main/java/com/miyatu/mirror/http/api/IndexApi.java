@@ -28,7 +28,8 @@ public class IndexApi extends BaseApi {
     private String weight = "";
     private String birthday = "";
 
-    public static final String LOGIN = "index/login";                           //账号密码登录
+    public static final String LOGIN = "index/login";                           //登录
+    public static final String BIND_PHONE = "index/bindWX";                     //微信登录绑定手机号
     public static final String SEND_SMS = "index/sendSMS";                      //发送验证码
     public static final String REGISTER = "index/register";                     //注册
     public static final String FORGET_PASSWORD = "index/forgetPwd";             //忘记密码
@@ -52,6 +53,8 @@ public class IndexApi extends BaseApi {
 
     public static final String WX_PAY = "extra/wxPay";                          //微信支付
     public static final String ALI_PAY = "extra/aliPay";                        //支付宝支付
+    public static final String PAY = "extra/Pay";                               //余额支付
+    public static final String MY_BALANCE = "index/getBalance";                 //账户余额
 
     public IndexApi(String mothed) {
         setShowProgress(false);
@@ -111,6 +114,9 @@ public class IndexApi extends BaseApi {
         IndexService service = retrofit.create(IndexService.class);
         if(getMothed().equals(LOGIN)){
             return service.login(params);
+        }
+        if(getMothed().equals(BIND_PHONE)){
+            return service.bindPhone(params);
         }
         if (getMothed().equals(SEND_SMS)) {
             return service.sendSms(params);
@@ -176,9 +182,6 @@ public class IndexApi extends BaseApi {
         if (getMothed().equals(COURSE_LIST)) {
             return service.courseList(params);
         }
-//        if (getMothed().equals(ADD_MEASURE)) {
-//            return service.addMeasure(bodyMap,parts);
-//        }
         if (getMothed().equals(ADD_MEASURE)) {
             return service.addMeasure(params);
         }
@@ -188,11 +191,17 @@ public class IndexApi extends BaseApi {
         if (getMothed().equals(WX_PAY)) {
             return service.wxPay(params);
         }
+        if (getMothed().equals(PAY)) {
+            return service.pay(params);
+        }
         if (getMothed().equals(DEL_MEASURE)) {
             return service.delMeasure(params);
         }
         if (getMothed().equals(MEASURE_INFO)) {
             return service.measureInfo(params);
+        }
+        if (getMothed().equals(MY_BALANCE)) {
+            return service.myBalance(params);
         }
         return null;
     }

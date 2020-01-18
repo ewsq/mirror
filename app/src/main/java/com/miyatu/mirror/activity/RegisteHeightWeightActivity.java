@@ -136,5 +136,6 @@ public class RegisteHeightWeightActivity extends RxAppCompatActivity implements 
     @Override
     public void onError(ApiException e) {
         LogUtils.i(e.getMessage());
+        ToastUtils.show(e.getMessage());
     }
 }

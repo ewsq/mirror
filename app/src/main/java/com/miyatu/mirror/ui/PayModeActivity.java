@@ -1,12 +1,13 @@
 package com.miyatu.mirror.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.alipay.sdk.app.PayTask;
 import com.google.gson.Gson;
@@ -16,6 +17,7 @@ import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicActivity;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.AliPayBean;
+import com.miyatu.mirror.bean.BalancePayBean;
 import com.miyatu.mirror.bean.WxPayBean;
 import com.miyatu.mirror.http.api.IndexApi;
 import com.miyatu.mirror.util.CommonUtils;
@@ -34,23 +36,32 @@ import java.util.Map;
 public class PayModeActivity extends PublicActivity implements View.OnClickListener, HttpOnNextListener {
 
     private RelativeLayout rlBack;
-    private TextView tvEdit;
     private LinearLayout linPayforAli;//支付宝支付
     private LinearLayout linPayforWx;//微信支付
+    private LinearLayout linPayforBalance;      //余额支付
 
-    private int type = 0;           //支付类型 1：会员升级 2：量体数据
+    private int type = 0;           //支付类型 1会员升级 2量体数据 3余额充值
     private int itemID = 0;         //会员等级id或量体数据的id
-    private double price = 0;       //价格
+    private int relativeID = 0;     //关系ID
+
+    private String amount;         //充值金额
 
     private HttpManager manager;
     private IndexApi api;
     private Map<String,Object> params;
 
-    public static void startActivity(Context context, int type, int itemID, double price){
+    public static void startActivity(Context context, int type, int itemID, int relativeID){
         Intent intent = new Intent(context, PayModeActivity.class);
         intent.putExtra("type", type);
         intent.putExtra("itemID", itemID);
-        intent.putExtra("price", price);
+        intent.putExtra("relativeID", relativeID);
+        context.startActivity(intent);
+    }
+
+    public static void startActivity(Context context, int type, String amount){
+        Intent intent = new Intent(context, PayModeActivity.class);
+        intent.putExtra("type", type);
+        intent.putExtra("amount", amount);
         context.startActivity(intent);
     }
 
@@ -59,48 +70,28 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
         return R.layout.activity_pay_mode;
     }
 
-    private void initPayRequest(String method){
-        params = new HashMap<>();
-        params.put("token",getUserDataBean().getToken());
-        params.put("type",type);
-        params.put("item_id", itemID);
-        manager = new HttpManager(this,this);
-        api = new IndexApi(method);
-        api.setParams(params);
-        manager.doHttpDeal(api);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.iv_payfor_wechat:
-                initPayRequest(IndexApi.WX_PAY);
-                break;
-            case R.id.iv_payfor_zhi:
-                initPayRequest(IndexApi.ALI_PAY);
-                break;
-            case R.id.rl_back:
-                finish();
-                break;
-            default:
-                break;
-        }
-    }
-
     public void initView(){
         rlBack = findViewById(R.id.rl_back);
-        linPayforAli = findViewById(R.id.iv_payfor_zhi);
-        linPayforAli.setOnClickListener(this);
-        linPayforWx = findViewById(R.id.iv_payfor_wechat);
-        linPayforWx.setOnClickListener(this);
         rlBack.setOnClickListener(this);
+        linPayforAli = findViewById(R.id.ll_payfor_zhi);
+        linPayforAli.setOnClickListener(this);
+        linPayforWx = findViewById(R.id.ll_payfor_wechat);
+        linPayforWx.setOnClickListener(this);
+
+        linPayforBalance = findViewById(R.id.ll_payfor_balance);
+        linPayforBalance.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
         type = getIntent().getIntExtra("type", 0);
         itemID = getIntent().getIntExtra("itemID", 0);
-        price = getIntent().getDoubleExtra("price", 0);
+        relativeID = getIntent().getIntExtra("relativeID", 0);
+        amount = getIntent().getStringExtra("amount");
+
+        if (type == 3) {
+            linPayforBalance.setVisibility(View.GONE);          //余额重置隐藏掉余额支付选项
+        }
     }
 
     @Override
@@ -111,6 +102,59 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
     @Override
     protected void updateView() {
 
+    }
+
+    private void initPayRequest(String method) {
+        params = new HashMap<>();
+        params.put("token", getUserDataBean().getToken());
+        params.put("type", type);
+        if (type == 3) {                //3是充值，充值传金额，不传itemID
+            params.put("amount", amount);
+        } else {
+            params.put("item_id", itemID);
+        }
+        manager = new HttpManager(this,this);
+        api = new IndexApi(method);
+        api.setParams(params);
+        manager.doHttpDeal(api);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.ll_payfor_wechat:
+                initPayRequest(IndexApi.WX_PAY);
+                break;
+            case R.id.ll_payfor_zhi:
+                initPayRequest(IndexApi.ALI_PAY);
+                break;
+            case R.id.ll_payfor_balance:
+                confirmBalancePay();
+                break;
+            case R.id.rl_back:
+                finish();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void confirmBalancePay() {
+        AlertDialog alertDialog = new AlertDialog.Builder(PayModeActivity.this)
+                .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        initPayRequest(IndexApi.PAY);
+                    }
+                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                })
+                .setMessage("确定支付吗？")
+                .create();
+        alertDialog.show();
     }
 
     @Override
@@ -127,11 +171,21 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
                 wxPay(data.getResult());
             }
         }
+        if (mothead.equals(IndexApi.PAY)) {
+            BalancePayBean data = new Gson().fromJson(resulte, new TypeToken<BalancePayBean>(){}.getType());
+            if (data.getStatus() == 1) {
+                ToastUtils.show("支付成功");
+                EventBus.getDefault().post(true);
+                EventBus.getDefault().post(CommonUtils.REFRESH);;
+                RecordDetailsActivity.startActivity(PayModeActivity.this, relativeID, itemID);
+                finish();
+            }
+        }
     }
 
     @Override
     public void onError(ApiException e) {
-
+        ToastUtils.show(e.getMessage());
     }
 
     //支付宝支付
@@ -165,11 +219,16 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
         if(object instanceof BaseResp){
             BaseResp resp = (BaseResp)object;
             if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
-
                 if (resp.errCode == 0) {
-                    ToastUtils.show("支付成功");
-                    EventBus.getDefault().post(true);
-                    EventBus.getDefault().post(CommonUtils.REFRESH);
+                    if (type == 3) {
+                        EventBus.getDefault().post(CommonUtils.BALANCE_REFRESH);;
+                    }
+                    else {
+                        ToastUtils.show("支付成功");
+                        EventBus.getDefault().post(true);
+                        EventBus.getDefault().post(CommonUtils.REFRESH);
+                        RecordDetailsActivity.startActivity(PayModeActivity.this, relativeID, itemID);
+                    }
                     finish();
                 } else if (resp.errCode == -2) {
                     ToastUtils.show("取消支付");
@@ -187,8 +246,15 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
             String status = result.get("resultStatus");
             if (status.equals("9000")) {
                 ToastUtils.show("支付成功");
-                EventBus.getDefault().post(true);
-                EventBus.getDefault().post(CommonUtils.REFRESH);
+                if (type == 3) {
+                    EventBus.getDefault().post(CommonUtils.BALANCE_REFRESH);;
+                }
+                else {
+                    ToastUtils.show("支付成功");
+                    EventBus.getDefault().post(true);
+                    EventBus.getDefault().post(CommonUtils.REFRESH);
+                    RecordDetailsActivity.startActivity(PayModeActivity.this, relativeID, itemID);
+                }
                 finish();
             }
             if (status.equals("8000")) {

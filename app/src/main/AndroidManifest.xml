@@ -28,14 +28,20 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <activity
+            android:name="com.miyatu.mirror.wxapi.WXEntryActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true"
+            android:taskAffinity="net.sourceforge.simcpux"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
             android:name="com.miyatu.mirror.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
-
                 <category android:name="android.intent.category.DEFAULT"/>
-
                 <data android:scheme="wx5a8bced094340e09"/>
             </intent-filter>
         </activity>
@@ -126,6 +132,9 @@
             android:name="com.miyatu.mirror.ui.InformationDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name="com.miyatu.mirror.activity.MyBalanceActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name="com.miyatu.mirror.activity.ForgetPasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
@@ -141,6 +150,9 @@
             android:name="com.miyatu.mirror.activity.FrontCameraActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name="com.miyatu.mirror.activity.BindPhoneActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name="com.miyatu.mirror.activity.SideCameraActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
@@ -148,7 +160,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="com.miyatu.mirror.activity.EditOutlineActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name="com.miyatu.mirror.ui.InformationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

@@ -110,6 +110,41 @@
             android:paddingRight="20dp"
             android:paddingLeft="25dp"
             android:orientation="horizontal"
+            android:id="@+id/ll_mine_balance"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/icon_balance"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:paddingLeft="15dp"
+                android:layout_weight="5"
+                android:textSize="14sp"
+                android:textColor="#434343"
+                android:text="我的余额"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@mipmap/icon_mine_more"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="11dp" />
+        </LinearLayout>
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#e5e5e5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:paddingRight="20dp"
+            android:paddingLeft="25dp"
+            android:orientation="horizontal"
             android:id="@+id/ll_mine_admin"
             android:layout_weight="1"
             android:layout_width="match_parent"

@@ -19,6 +19,10 @@ public class PreferencesUtils {
 
 	public static String PREF_COOKIES = "cookies";
 
+	public static final String WEIXIN_ACCESS_TOKEN_KEY = "access_token_wx";
+	public static final String WEIXIN_OPENID_KEY = "openid_wx";
+	public static final String WEIXIN_REFRESH_TOKEN_KEY = "refresh_token_wx";
+
 	/**存储字符串*/
 	public static boolean putString(Context context, String key, String value) {
 		SharedPreferences preferences = context.getSharedPreferences(PREFERENCE_NAME, 0);

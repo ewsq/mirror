@@ -10,7 +10,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.hjq.toast.ToastUtils;
 import com.miyatu.mirror.PublicFragment;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.adapter.FriendVolumeAdapter;
@@ -113,7 +112,7 @@ public class FriendVolumeRecordFragment extends PublicFragment implements HttpOn
                 FriendVolumeRecordFragmentBean.DataBean dataBean = (FriendVolumeRecordFragmentBean.DataBean)adapter.getData().get(position);
                 switch (view.getId()) {
                     case R.id.tv_pay:
-                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), Double.parseDouble(dataBean.getPrice()));
+                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), dataBean.getRelative_id());
                         break;
                     case R.id.tv_more:
                         RecordDetailsActivity.startActivity(getActivity(), dataBean.getRelative_id(), dataBean.getId());
@@ -149,7 +148,6 @@ public class FriendVolumeRecordFragment extends PublicFragment implements HttpOn
                 initContent(data.getData());
                 return;
             }
-            ToastUtils.show(data.getMsg());
         }
     }
 

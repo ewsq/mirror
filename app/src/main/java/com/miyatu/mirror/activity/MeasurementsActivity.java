@@ -87,8 +87,8 @@ public class MeasurementsActivity extends RxAppCompatActivity{
                     bundle.putString("height", height);
                     bundle.putInt("relativeID", relativeID);
                     bundle.putParcelableArrayList("measurementBeanList", (ArrayList<? extends Parcelable>) measurementBeanList);
-                    System.out.println("####step SIZE=" + measurementBeanList.size());
                     startActivity(new Intent(MeasurementsActivity.this, AddMeasurementActivity.class).putExtras(bundle));
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(),sdkResponse.getServerStatusText() + "(" + sdkResponse.getServerStatusCode() + ")", Toast.LENGTH_SHORT).show();
                 }
@@ -117,11 +117,10 @@ public class MeasurementsActivity extends RxAppCompatActivity{
                     bundle.putString("height", height);
                     bundle.putInt("relativeID", relativeID);
                     bundle.putParcelableArrayList("measurementBeanList", (ArrayList<? extends Parcelable>) measurementBeanList);
-                    System.out.println("####step SIZE=" + measurementBeanList.size());
                     startActivity(new Intent(MeasurementsActivity.this, AddMeasurementActivity.class).putExtras(bundle));
+                    finish();
                 } else {
-                    Toast.makeText(getApplicationContext(),
-                            sdkResponse.getServerStatusText() + "(" + sdkResponse.getServerStatusCode() + ")", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),sdkResponse.getServerStatusText() + "(" + sdkResponse.getServerStatusCode() + ")", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -141,6 +140,7 @@ public class MeasurementsActivity extends RxAppCompatActivity{
                         bean.setIntro(measurementEntityList.get(i).getSizeIntro());
                         bean.setName(measurementEntityList.get(i).getSizeName());
                         bean.setUnit(measurementEntityList.get(i).getUnit());
+                        System.out.println("####step" + measurementEntityList.get(i).getSizeName() + measurementEntityList.get(i).getMeaValue() + measurementEntityList.get(i).getUnit());
                         measurementBeanList.add(bean);
                     }
                     Bundle bundle = new Bundle();
@@ -148,12 +148,10 @@ public class MeasurementsActivity extends RxAppCompatActivity{
                     bundle.putString("height", height);
                     bundle.putInt("relativeID", relativeID);
                     bundle.putParcelableArrayList("measurementBeanList", (ArrayList<? extends Parcelable>) measurementBeanList);
-                    System.out.println("####step SIZE=" + measurementBeanList.size());
                     startActivity(new Intent(MeasurementsActivity.this, AddMeasurementActivity.class).putExtras(bundle));
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(),
-                            sdkResponse.getServerStatusText() + "(" + sdkResponse.getServerStatusCode() + ")", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),sdkResponse.getServerStatusText() + "(" + sdkResponse.getServerStatusCode() + ")", Toast.LENGTH_SHORT).show();
                 }
             }
         });

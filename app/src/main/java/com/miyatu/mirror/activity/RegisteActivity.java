@@ -110,7 +110,7 @@ public class RegisteActivity extends RxAppCompatActivity implements View.OnClick
                     ToastUtils.show("密码不能为空");
                     return;
                 }
-                Intent intent=new Intent(RegisteActivity.this,RegisteInfoActivity.class);
+                Intent intent = new Intent(RegisteActivity.this,RegisteInfoActivity.class);
                 intent.putExtra("mobile", phoneNumber);
                 intent.putExtra("code", Integer.parseInt(code));
                 intent.putExtra("password", password);
@@ -140,6 +140,7 @@ public class RegisteActivity extends RxAppCompatActivity implements View.OnClick
     @Override
     public void onError(ApiException e) {
         LogUtils.i(e.getMessage());
+        ToastUtils.show(e.getMessage());
     }
 
     //倒计时函数

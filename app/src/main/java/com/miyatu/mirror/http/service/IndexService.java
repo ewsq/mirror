@@ -20,6 +20,11 @@ public interface IndexService {
     @POST(IndexApi.LOGIN)
     Observable<String> login(@FieldMap Map<String,Object> params);
 
+    //微信登录绑定手机号
+    @FormUrlEncoded
+    @POST(IndexApi.BIND_PHONE)
+    Observable<String> bindPhone(@FieldMap Map<String,Object> params);
+
     //发送验证码
     @FormUrlEncoded
     @POST(IndexApi.SEND_SMS)
@@ -104,11 +109,6 @@ public interface IndexService {
     @FormUrlEncoded
     @POST(IndexApi.COURSE_LIST)
     Observable<String> courseList(@FieldMap Map<String,Object> params);
-//
-//    //添加量体数据
-//    @Multipart
-//    @POST(IndexApi.ADD_MEASURE)
-//    Observable<String> addMeasure(@PartMap Map<String, RequestBody> bodyMap, @Part List<MultipartBody.Part> parts);
 
     //添加量体数据
     @FormUrlEncoded
@@ -124,5 +124,15 @@ public interface IndexService {
     @FormUrlEncoded
     @POST(IndexApi.WX_PAY)
     Observable<String> wxPay(@FieldMap Map<String,Object> params);
+
+    //余额支付
+    @FormUrlEncoded
+    @POST(IndexApi.PAY)
+    Observable<String> pay(@FieldMap Map<String,Object> params);
+
+    //账户余额
+    @FormUrlEncoded
+    @POST(IndexApi.MY_BALANCE)
+    Observable<String> myBalance(@FieldMap Map<String,Object> params);
 
 }

@@ -3,30 +3,26 @@ package com.miyatu.mirror.activity;
 import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.miyatu.mirror.Custom.AnimatedPathImageView;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.MeasurementBean;
+import com.miyatu.mirror.util.BitmapHolder;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.tozmart.tozisdk.activity.RxAppCompatActivity;
-import com.tozmart.tozisdk.api.GetMeasurementsCallback;
 import com.tozmart.tozisdk.api.GetProfileCallback;
 import com.tozmart.tozisdk.constant.SDKCode;
 import com.tozmart.tozisdk.entity.ErrorWarn;
 import com.tozmart.tozisdk.entity.MeasurementEntity;
-import com.tozmart.tozisdk.entity.MeasurementsData;
 import com.tozmart.tozisdk.entity.Profile2ModelData;
 import com.tozmart.tozisdk.entity.SdkResponse;
 import com.tozmart.tozisdk.sdk.OneMeasureSDKLite;
-import com.tozmart.tozisdk.utils.BitmapHolder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -88,10 +84,8 @@ public class ProfileActivity extends RxAppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                measurement();
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("profile2ModelData", mProfile2ModelData);
+//                bundle.putParcelable("profile2ModelData", mProfile2ModelData);            //加上这句会崩溃
                 bundle.putInt("apiType", apiType);
                 bundle.putBoolean("hasEdit", hasEdit);
                 bundle.putString("taskId", taskId);
@@ -99,6 +93,7 @@ public class ProfileActivity extends RxAppCompatActivity {
                 bundle.putString("height", height);
                 bundle.putInt("relativeID", relativeID);
                 startActivity(new Intent(ProfileActivity.this, MeasurementsActivity.class).putExtras(bundle));
+                finish();
             }
         });
 
@@ -163,8 +158,10 @@ public class ProfileActivity extends RxAppCompatActivity {
                     BitmapHolder.recycle();
                     BitmapHolder.setFrontBitmap(profile2ModelData.getFrontProcessedBitmap());
                     BitmapHolder.setSideBitmap(profile2ModelData.getSideProcessedBitmap());
+
                     drawFrontOutline();
                     drawSideOutline();
+
                     nextBtn.setVisibility(View.VISIBLE);
 
                 } else {
@@ -220,36 +217,6 @@ public class ProfileActivity extends RxAppCompatActivity {
         } else {
             sideView.setPath(sidePointsOnView, null);
         }
-    }
-
-    private void measurement() {
-        OneMeasureSDKLite.getInstance().getMeasurementsByTask(ProfileActivity.this, taskId, new GetMeasurementsCallback() {
-            @Override
-            public void onResponse(SdkResponse sdkResponse, final MeasurementsData measurementsData) {
-                if (sdkResponse.getServerStatusCode().equals(SDKCode.SERVER_SUCCESS)) {
-                    for (MeasurementEntity measurementEntity : measurementsData.getMeasurementEntities()) {
-                        measurementEntityList.add(measurementEntity);
-                    }
-                    for (int i = 0; i < measurementEntityList.size(); i ++) {
-                        MeasurementBean bean = new MeasurementBean();
-                        bean.setValue(measurementEntityList.get(i).getMeaValue());
-                        bean.setIntro(measurementEntityList.get(i).getSizeIntro());
-                        bean.setName(measurementEntityList.get(i).getSizeName());
-                        bean.setUnit(measurementEntityList.get(i).getUnit());
-                        measurementBeanList.add(bean);
-                    }
-                    Bundle bundle = new Bundle();
-                    bundle.putString("userName", userName);
-                    bundle.putString("height", height);
-                    bundle.putInt("relativeID", relativeID);
-                    bundle.putParcelableArrayList("measurementBeanList", (ArrayList<? extends Parcelable>) measurementBeanList);
-                    System.out.println("####step SIZE=" + measurementBeanList.size());
-                    startActivity(new Intent(ProfileActivity.this, AddMeasurementActivity.class).putExtras(bundle));
-                } else {
-                    Toast.makeText(getApplicationContext(),sdkResponse.getServerStatusText() + "(" + sdkResponse.getServerStatusCode() + ")", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
 }

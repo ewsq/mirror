@@ -27,6 +27,7 @@ public class CommonUtils {
     public static final int TYPE_THREE = 3;
 
     public static final String REFRESH = "refresh";
+    public static final String BALANCE_REFRESH = "balanceRefresh";
 
     public static final int PHOTO_REQUEST_GALLERY = 0x99;// 从相册中选择
 

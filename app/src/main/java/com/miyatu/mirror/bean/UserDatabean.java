@@ -47,6 +47,7 @@ public class UserDatabean {
          * email : 1198095563@qq.com
          * birthday : 2019-12-19
          * head_pic : /tmp/uploads/20191218/ddff723a0ba6f5752ef9bf3fa8ccb3ad.png
+         * money:"0.00"
          * alipay :
          * qq :
          * last_login : 2019-12-19 19:21:43
@@ -62,6 +63,7 @@ public class UserDatabean {
         private String email;
         private String birthday;
         private String head_pic;
+        private String money;
         private String alipay;
         private String qq;
         private String last_login;
@@ -137,6 +139,14 @@ public class UserDatabean {
 
         public void setHead_pic(String head_pic) {
             this.head_pic = head_pic;
+        }
+
+        public String getMoney() {
+            return money;
+        }
+
+        public void setMoney(String money) {
+            this.money = money;
         }
 
         public String getAlipay() {

@@ -180,6 +180,7 @@ public class AccountBind extends PublicActivity implements View.OnClickListener,
     @Override
     public void onError(ApiException e) {
         LogUtils.i(e.getMessage());
+        ToastUtils.show(e.getMessage());
     }
 
 

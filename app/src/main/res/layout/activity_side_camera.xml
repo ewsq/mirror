@@ -79,6 +79,16 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="80dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/cameraview_frame" />
+
     </RelativeLayout>
 
     <LinearLayout

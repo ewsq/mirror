@@ -132,6 +132,6 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
 
     @Override
     public void onError(ApiException e) {
-
+        ToastUtils.show(e.getMessage());
     }
 }

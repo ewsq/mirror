@@ -39,7 +39,7 @@ public class EditionActivity extends PublicActivity {
 
     @Override
     protected void initData() {
-        versionCode.setText("版本号" + getAppVersionCode(EditionActivity.this));
+        versionCode.setText("版本号" + getAppVersionName(EditionActivity.this));
     }
 
     @Override

@@ -56,7 +56,6 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     private LinearLayout ll_self_takephoto = null;//自拍模式
     private LinearLayout ll_help_takephoto = null;//帮拍模式
 
-
     private ViewPager mViewpager;
     private ViewPagerAdapter adapter;
     private ViewPagerIndicator mIndicatorDefault;//圆点指示器
@@ -91,7 +90,6 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
         api.setParams(params);
         manager.doHttpDeal(api);
     }
-
 
     @Override
     protected int getLayout() {
@@ -196,6 +194,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     @Override
     public void onError(ApiException e) {
         LogUtils.i(e.getMessage());
+        ToastUtils.show(e.getMessage());
     }
 
     class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -271,13 +270,14 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 switch (view.getId()) {
                     case R.id.linearLayout:
                         Bundle bundle = new Bundle();
-                        bundle.putInt("apiType", MyApp.IMAGE2MEASURE);
+                        bundle.putInt("apiType", MyApp.PROFILE2MEASURE);
                         bundle.putString("userName", dataBean.getRelative());
                         bundle.putInt("gender", dataBean.getGender());
                         bundle.putString("height", dataBean.getHeight());
                         bundle.putInt("relativeID", dataBean.getId());
                         bundle.putInt("cameraFacing", cameraFacing);
                         startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
+                        popupWindow.dismiss();
                         break;
                 }
             }
@@ -286,11 +286,10 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
         ll_dialog_haved_account.setOnClickListener(new View.OnClickListener() {             //选择了已有量体账户
             @Override
             public void onClick(View v) {
-                popupWindow.dismiss();
 //                HelpPhotoMode.startActivity(getActivity());
                 UserDatabean.DataBean.RelativeBean relativeBean = getUserDataBean().getRelative();
                 Bundle bundle = new Bundle();
-                bundle.putInt("apiType", MyApp.IMAGE2MEASURE);
+                bundle.putInt("apiType", MyApp.PROFILE2MEASURE);
                 bundle.putString("userName", relativeBean.getRelative());
                 bundle.putInt("gender", relativeBean.getGender());
                 bundle.putString("height", relativeBean.getHeight());
@@ -298,6 +297,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 bundle.putInt("cameraFacing", cameraFacing);
 
                 startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
+                popupWindow.dismiss();
 //                FrontCameraActivity.startActivity(getActivity(), relativeBean.getRelative(), relativeBean.getGender(), Double.valueOf(getUserDataBean().getRelative().getHeight()).intValue(),
 //                        Double.valueOf(getUserDataBean().getRelative().getWeight()).intValue(), relativeBean.getRelative_id());
             }

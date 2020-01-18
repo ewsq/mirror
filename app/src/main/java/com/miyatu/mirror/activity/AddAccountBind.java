@@ -2,6 +2,7 @@ package com.miyatu.mirror.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -13,9 +14,11 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hjq.toast.ToastUtils;
+import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicActivity;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.bean.AccountBindBean;
+import com.miyatu.mirror.bean.AddAccountBindBean;
 import com.miyatu.mirror.bean.BaseBean;
 import com.miyatu.mirror.bean.UserDatabean;
 import com.miyatu.mirror.http.api.IndexApi;
@@ -48,6 +51,8 @@ public class AddAccountBind extends PublicActivity implements HttpOnNextListener
     private float height;
     private float weight;
     private String nickName;
+
+    private int cameraFacing;
 
     public final static int IS_OTHER_ACCOUNT = 0;           //亲友量体账户
     public final static int IS_MY_ACCOUNT = 1;              //我的量体账户
@@ -94,6 +99,11 @@ public class AddAccountBind extends PublicActivity implements HttpOnNextListener
     }
     public static void startActivity(Context context){
         Intent intent = new Intent(context, AddAccountBind.class);
+        context.startActivity(intent);
+    }
+    public static void startActivity(Context context, int cameraFacing){
+        Intent intent = new Intent(context, AddAccountBind.class);
+        intent.putExtra("cameraFacing", cameraFacing);
         context.startActivity(intent);
     }
 
@@ -244,9 +254,19 @@ public class AddAccountBind extends PublicActivity implements HttpOnNextListener
         }
         if (mothead.equals(IndexApi.ADD_RELATIVE)) {
             //fromJson()方法来实现从Json相关对象到Java实体。TypeToken是gson提供的数据类型转换器，可以支持各种数据集合类型转换。
-            BaseBean data = new Gson().fromJson(resulte, new TypeToken<BaseBean>(){}.getType());
+            AddAccountBindBean data = new Gson().fromJson(resulte, new TypeToken<AddAccountBindBean>(){}.getType());
             if (data.getStatus() == 1) {          //成功
                 EventBus.getDefault().post(data);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("apiType", MyApp.PROFILE2MEASURE);
+                bundle.putString("userName", etNickName.getText().toString().trim());
+                bundle.putInt("gender", sex);
+                bundle.putString("height", etHeight.getText().toString().trim());
+                bundle.putInt("relativeID", Integer.parseInt(data.getData()));
+                bundle.putInt("cameraFacing", cameraFacing);
+                startActivity(new Intent(AddAccountBind.this, FrontCameraActivity.class).putExtras(bundle));
+
                 finish();
                 return;
             }
@@ -257,6 +277,7 @@ public class AddAccountBind extends PublicActivity implements HttpOnNextListener
     @Override
     public void onError(ApiException e) {
         LogUtils.i(e.getMessage());
+        ToastUtils.show(e.getMessage());
     }
 
     public static boolean isNumeric(String str) {

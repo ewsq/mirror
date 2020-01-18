@@ -10,9 +10,9 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.miyatu.mirror.R;
+import com.miyatu.mirror.util.BitmapHolder;
 import com.tozmart.tozisdk.api.OnEditListener;
 import com.tozmart.tozisdk.entity.Profile2ModelData;
-import com.tozmart.tozisdk.utils.BitmapHolder;
 import com.tozmart.tozisdk.view.EditOutlineView;
 import com.tozmart.tozisdk.view.editprofileview.CurrentMode;
 

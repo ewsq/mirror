@@ -21,6 +21,7 @@ import com.miyatu.mirror.PublicFragment;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.activity.AccountBind;
 import com.miyatu.mirror.activity.LoginActivity;
+import com.miyatu.mirror.activity.MyBalanceActivity;
 import com.miyatu.mirror.activity.PersonInfo;
 import com.miyatu.mirror.bean.UserDatabean;
 import com.miyatu.mirror.util.ScreenUtils;
@@ -43,6 +44,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
     private LinearLayout llMineShare;
     private LinearLayout llMineQuestion;
     private LinearLayout llMineEdition;
+    private LinearLayout llMineBalance;
     private ImageView ivShareWeixin;
     private ImageView ivShareWeixinFriendCircle;
     private ImageView ivShareQQ;
@@ -76,6 +78,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         ivInformation = view.findViewById(R.id.iv_information);
         linUserData = view.findViewById(R.id.linUserData);
         logout = view.findViewById(R.id.logout);
+        llMineBalance = view.findViewById(R.id.ll_mine_balance);
 
         initPopVolume();
         initPopShare();
@@ -98,6 +101,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         llMineQuestion.setOnClickListener(this);
         ivInformation.setOnClickListener(this);
         linUserData.setOnClickListener(this);
+        llMineBalance.setOnClickListener(this);
         logout.setOnClickListener(this);
     }
 
@@ -120,6 +124,9 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
                 else {
                     PersonInfo.startActivity(getActivity());
                 }
+                break;
+            case R.id.ll_mine_balance:              //我的余额
+                MyBalanceActivity.startActivity(getActivity());
                 break;
             case R.id.ll_mine_share:        //分享魔镜
                 ScreenUtils.dimBackground(getActivity(),1f,0.5f);       //屏幕亮度变化

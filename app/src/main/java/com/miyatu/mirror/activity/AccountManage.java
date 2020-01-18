@@ -253,7 +253,7 @@ public class AccountManage extends PublicActivity implements View.OnClickListene
 
     @Override
     public void onError(ApiException e) {
-
+        ToastUtils.show(e.getMessage());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
