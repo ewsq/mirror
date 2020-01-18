@@ -141,6 +141,9 @@
             android:name="com.miyatu.mirror.activity.MeasurementsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name="com.miyatu.mirror.activity.ConnectServiceActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name="com.miyatu.mirror.activity.EditVolumeRecordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

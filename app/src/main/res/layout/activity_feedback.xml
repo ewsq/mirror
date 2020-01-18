@@ -54,10 +54,12 @@
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
         <View
             android:background="#ededed"
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
+
         <LinearLayout
             android:layout_marginRight="38dp"
             android:layout_marginLeft="38dp"
@@ -66,73 +68,90 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
-            <TextView
-                android:textColor="#333333"
-                android:textSize="16sp"
-                android:text="您的手机号："
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:id="@+id/et_phone"
-                android:inputType="number"
-                android:textColor="#cccccc"
-                android:textSize="16sp"
-                android:background="@null"
-                android:hint="请输入您的手机号"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:paddingBottom="10dp"
-                android:maxLines="1"
-                android:ellipsize="end"/>
+                android:orientation="vertical" >
+                <TextView
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:text="您的手机号："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:inputType="number"
+                    android:textColor="#cccccc"
+                    android:textSize="16sp"
+                    android:background="@null"
+                    android:hint="请输入您的手机号"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:paddingBottom="10dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+            </LinearLayout>
             <View
                 android:layout_marginBottom="32dp"
                 android:background="#ededed"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
-            <TextView
-                android:textColor="#666666"
-                android:textSize="16sp"
-                android:text="反馈标题："
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:textColor="#666666"
-                android:textSize="16sp"
-                android:background="@null"
-                android:id="@+id/et_feedback_title"
-                android:hint="请输入反馈标题"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:paddingBottom="10dp"
-                android:maxLines="1"
-                android:ellipsize="end"/>
+                android:orientation="vertical">
+                <TextView
+                    android:textColor="#666666"
+                    android:textSize="16sp"
+                    android:text="反馈标题："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textColor="#666666"
+                    android:textSize="16sp"
+                    android:background="@null"
+                    android:id="@+id/et_feedback_title"
+                    android:hint="请输入反馈标题"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:paddingBottom="10dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+            </LinearLayout>
             <View
                 android:layout_marginBottom="32dp"
                 android:background="#ededed"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
-            <TextView
-                android:textColor="#333333"
-                android:textSize="16sp"
-                android:text="反馈内容："
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:textColor="#666666"
-                android:textSize="16sp"
-                android:background="@drawable/bg_dialog_rect"
-                android:id="@+id/et_feedback_content"
-                android:padding="10dp"
-                android:gravity="top"
-                android:hint=""
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:minLines="10"/>
+                android:orientation="vertical">
+                <TextView
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:text="反馈内容："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:textColor="#666666"
+                    android:textSize="16sp"
+                    android:background="@drawable/bg_dialog_rect"
+                    android:id="@+id/et_feedback_content"
+                    android:padding="10dp"
+                    android:gravity="top"
+                    android:hint=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:minLines="10"/>
+            </LinearLayout>
 
         </LinearLayout>
+
         <TextView
             android:layout_marginTop="74dp"
             android:layout_marginBottom="35dp"

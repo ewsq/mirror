@@ -20,6 +20,7 @@ import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.PublicFragment;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.activity.AccountBind;
+import com.miyatu.mirror.activity.ConnectServiceActivity;
 import com.miyatu.mirror.activity.LoginActivity;
 import com.miyatu.mirror.activity.MyBalanceActivity;
 import com.miyatu.mirror.activity.PersonInfo;
@@ -45,6 +46,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
     private LinearLayout llMineQuestion;
     private LinearLayout llMineEdition;
     private LinearLayout llMineBalance;
+    private LinearLayout llConnectService;
     private ImageView ivShareWeixin;
     private ImageView ivShareWeixinFriendCircle;
     private ImageView ivShareQQ;
@@ -73,6 +75,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         llMineQuestion = view.findViewById(R.id.ll_mine_question);
         llMineShare = view.findViewById(R.id.ll_mine_share);
         llMineSound = view.findViewById(R.id.ll_mine_sound);
+        llConnectService = view.findViewById(R.id.ll_connect_service);
         ivHead = view.findViewById(R.id.iv_head);
         tvMineName = view.findViewById(R.id.tv_mine_name);
         ivInformation = view.findViewById(R.id.iv_information);
@@ -102,6 +105,7 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         ivInformation.setOnClickListener(this);
         linUserData.setOnClickListener(this);
         llMineBalance.setOnClickListener(this);
+        llConnectService.setOnClickListener(this);
         logout.setOnClickListener(this);
     }
 
@@ -139,6 +143,9 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
             case R.id.ll_mine_question:
                 //问题反馈
                 FeedbackActivity.startActivity(getActivity());
+                break;
+            case R.id.ll_connect_service:           //联系客服
+                ConnectServiceActivity.startActivity(getActivity());
                 break;
             case R.id.ll_mine_edition:
                 //版本
