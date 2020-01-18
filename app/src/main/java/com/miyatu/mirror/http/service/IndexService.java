@@ -75,6 +75,11 @@ public interface IndexService {
     @POST(IndexApi.INDEX)
     Observable<String> index(@FieldMap Map<String,Object> params);
 
+    //量体结果发送到邮箱
+    @FormUrlEncoded
+    @POST(IndexApi.SEND_TO_MAILBOX)
+    Observable<String> sendToMailBox(@FieldMap Map<String,Object> params);
+
     //量体数据详情
     @FormUrlEncoded
     @POST(IndexApi.MEASURE_INFO)

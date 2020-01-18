@@ -18,6 +18,7 @@ import com.miyatu.mirror.PublicActivity;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.adapter.RecordDetailsAdapter;
 import com.miyatu.mirror.bean.RecordDetailsBean;
+import com.miyatu.mirror.bean.SendToMailboxBean;
 import com.miyatu.mirror.http.api.IndexApi;
 import com.miyatu.mirror.util.LogUtils;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
@@ -38,6 +39,7 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
     private TextView tvName;
     private TextView tvHeight;
     private TextView tvWeight;
+    private TextView tvSend;
 
     private RecyclerView recyclerView;
     private RecordDetailsAdapter adapter;
@@ -56,6 +58,17 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
         params.put("measure_id", measureID);
         manager = new HttpManager(this,(RxAppCompatActivity)RecordDetailsActivity.this);
         api = new IndexApi(IndexApi.MEASURE_INFO);
+        api.setParams(params);
+        manager.doHttpDeal(api);
+    }
+
+    private void initSendRequest(int measureID) {
+        params = new HashMap<>();
+        params.put("token", getUserDataBean().getToken());
+        params.put("ids", measureID);
+        params.put("email", getUserDataBean().getEmail());
+        manager = new HttpManager(this,(RxAppCompatActivity)RecordDetailsActivity.this);
+        api = new IndexApi(IndexApi.SEND_TO_MAILBOX);
         api.setParams(params);
         manager.doHttpDeal(api);
     }
@@ -79,6 +92,7 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
         tvName = findViewById(R.id.tv_name);
         tvHeight = findViewById(R.id.tv_height);
         tvWeight = findViewById(R.id.tv_weight);
+        tvSend = findViewById(R.id.tv_send);
         recyclerView = findViewById(R.id.recyclerView);
         initRecyclerView();
     }
@@ -96,6 +110,12 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
             @Override
             public void onClick(View view) {
                 finish();//返回键
+            }
+        });
+        tvSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initSendRequest(measureID);
             }
         });
     }
@@ -124,6 +144,16 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
                 tvHeight.setText(data.getData().getHeight() + "cm");
                 tvWeight.setText(data.getData().getWeight() + "kg");
                 adapter.setNewData(data.getData().getMeasure());
+                return;
+            }
+            ToastUtils.show(data.getMsg());
+        }
+        if (mothead.equals(IndexApi.SEND_TO_MAILBOX)) {
+            LogUtils.i(resulte);
+            //fromJson()方法来实现从Json相关对象到Java实体。TypeToken是gson提供的数据类型转换器，可以支持各种数据集合类型转换。
+            SendToMailboxBean data = new Gson().fromJson(resulte, new TypeToken<SendToMailboxBean>(){}.getType());
+            if (data.getStatus() == 1) {          //成功
+                ToastUtils.show(data.getMsg());
                 return;
             }
             ToastUtils.show(data.getMsg());

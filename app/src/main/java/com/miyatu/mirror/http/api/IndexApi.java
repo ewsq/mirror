@@ -38,6 +38,7 @@ public class IndexApi extends BaseApi {
     public static final String MESSAGE_INFO = "index/messageInfo";              //消息详情
     public static final String EDIT_INFO = "index/editInfo";                    //修改用户信息
     public static final String GET_PROTOCOL = "index/getProtocol";              //获取协议
+    public static final String SEND_TO_MAILBOX = "index/getMeasureData";        //量体结果发送到邮箱
 
     public static final String RELATIVE_LIST = "index/relativeList";            //获取量体关系列表
     public static final String EDIT_RELATIVE = "index/editRelative";            //修改量体关系账户
@@ -169,6 +170,9 @@ public class IndexApi extends BaseApi {
         }
         if (getMothed().equals(RELATIVE_LIST)) {
             return service.relativeList(params);
+        }
+        if (getMothed().equals(SEND_TO_MAILBOX)) {
+            return service.sendToMailBox(params);
         }
         if(getMothed().equals(EDIT_RELATIVE)) {
             return service.editRelative(params);
