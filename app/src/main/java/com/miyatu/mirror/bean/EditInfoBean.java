@@ -2,10 +2,11 @@ package com.miyatu.mirror.bean;
 
 public class EditInfoBean {
 
+
     /**
      * status : 1
      * msg : 修改成功
-     * data : {"head_pic":"public/user_thumb/20191224/2435a8fa905ecc5dfa9396643d6d023d.jpg","nickname":"000000","gender":"1","height":"176","weight":"68","birthday":"20200220"}
+     * data : {"head_pic":"public/user_thumb/20191224/2435a8fa905ecc5dfa9396643d6d023d.jpg","nickname":"000000","gender":1,"height":"176","weight":"68","birthday":"20200220","email":"1@qq.com"}
      */
 
     private int status;
@@ -44,6 +45,7 @@ public class EditInfoBean {
          * height : 176
          * weight : 68
          * birthday : 20200220
+         * email : 1@qq.com
          */
 
         private String head_pic;
@@ -52,6 +54,7 @@ public class EditInfoBean {
         private String height;
         private String weight;
         private String birthday;
+        private String email;
 
         public String getHead_pic() {
             return head_pic;
@@ -99,6 +102,14 @@ public class EditInfoBean {
 
         public void setBirthday(String birthday) {
             this.birthday = birthday;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
         }
     }
 }

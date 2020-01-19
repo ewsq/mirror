@@ -27,6 +27,7 @@ public class IndexApi extends BaseApi {
     private String height = "";
     private String weight = "";
     private String birthday = "";
+    private String email = "";
 
     public static final String LOGIN = "index/login";                           //登录
     public static final String BIND_PHONE = "index/bindWX";                     //微信登录绑定手机号
@@ -110,6 +111,10 @@ public class IndexApi extends BaseApi {
         this.birthday = birthday;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public Observable getObservable(Retrofit retrofit) {
         IndexService service = retrofit.create(IndexService.class);
@@ -144,6 +149,7 @@ public class IndexApi extends BaseApi {
             RequestBody strBodyHeight = RequestBody.create(MediaType.parse("text/plain"), height);
             RequestBody strBodyWeight = RequestBody.create(MediaType.parse("text/plain"), weight);
             RequestBody strBodyBirthday = RequestBody.create(MediaType.parse("text/plain"), birthday);
+            RequestBody strBodyEmail = RequestBody.create(MediaType.parse("text/plain"), email);
             bodyMap = new HashMap<>();
             bodyMap.put("token", strBodyToken);
             bodyMap.put("nickname", strBodyName);
@@ -151,6 +157,7 @@ public class IndexApi extends BaseApi {
             bodyMap.put("height", strBodyHeight);
             bodyMap.put("weight", strBodyWeight);
             bodyMap.put("birthday", strBodyBirthday);
+            bodyMap.put("email", strBodyEmail);
             if (headImage != null) {
                 RequestBody fileBody = RequestBody.create(MediaType.parse("multipart/form-data"), headImage);
                 MultipartBody.Part part = MultipartBody.Part.createFormData("head_pic", headImage.getName(), fileBody);

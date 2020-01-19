@@ -46,12 +46,12 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
     private TextView et_show_name;
     private TextView tv_show_sex;
     private TextView tv_show_birthday;
+    private TextView et_show_email;
     private TextView pick_weight;
     private TextView tv_save;
     private ImageView iv_back;
     private ImageView iv_change_head;
     private ImageView iv_show_sex_icon;
-    private ImageView iv_eyes;
     private LinearLayout linHeight;
     private LinearLayout linWeight;
     private LinearLayout linSex;
@@ -69,6 +69,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
     private File portraitFile;
     private String portraitUrl;
     private String birthday;
+    private String email;
 
     private HttpManager manager;
     private IndexApi api;
@@ -92,6 +93,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
         tv_show_sex.setOnClickListener(this);
         tv_show_birthday=findViewById(R.id.tv_show_birthday);
         tv_show_birthday.setOnClickListener(this);
+        et_show_email = findViewById(R.id.et_show_email);
         tv_save=findViewById(R.id.tv_save);
         tv_save.setOnClickListener(this);
         iv_back=findViewById(R.id.iv_back);
@@ -101,8 +103,6 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
         iv_show_sex_icon=findViewById(R.id.iv_show_sex_icon);
         pick_weight=findViewById(R.id.pick_weight);
         pick_weight.setOnClickListener(this);
-        iv_eyes=findViewById(R.id.iv_eyes);
-        iv_eyes.setOnClickListener(this);
         linHeight = findViewById(R.id.linHeight);
         linHeight.setOnClickListener(this);
         linWeight = findViewById(R.id.linWeight);
@@ -142,6 +142,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
         height = Double.valueOf(getUserDataBean().getRelative().getHeight()).intValue();
         portraitUrl = getUserDataBean().getHead_pic();
         birthday = getUserDataBean().getBirthday();
+        email = getUserDataBean().getEmail();
 
         et_show_name.setText(getUserDataBean().getNickname());
         Glide.with(this).load(MyApp.imageUrl + portraitUrl).placeholder( R.mipmap.edit_person_info_headicon).into(iv_change_head);
@@ -156,6 +157,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
         pick_height.setText(height + "");
         pick_weight.setText(weight + "");
         tv_show_birthday.setText(birthday);
+        et_show_email.setText(email);
     }
 
     @Override
@@ -194,6 +196,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
                 api.setHeight(pick_height.getText().toString().trim());
                 api.setWeight(pick_weight.getText().toString().trim());
                 api.setBirthday(tv_show_birthday.getText().toString().trim());
+                api.setEmail(et_show_email.getText().toString().trim());
                 if (portraitFile != null) {
                     api.setHeadImage(portraitFile);
                 }
@@ -211,10 +214,6 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
                 intent.setType("image/*");
                 // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_GALLERY
                 startActivityForResult(intent, CommonUtils.PHOTO_REQUEST_GALLERY);
-                break;
-            }
-            case R.id.iv_eyes:{
-//                Toast.makeText(this, "点击了小眼睛", Toast.LENGTH_SHORT).show();
                 break;
             }
         }
@@ -362,6 +361,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
                 dataBean.setSex(data.getData().getGender());
                 dataBean.setBirthday(data.getData().getBirthday());
                 dataBean.setNickname(data.getData().getNickname());
+                dataBean.setEmail(data.getData().getEmail());
                 dataBean.getRelative().setHeight(data.getData().getHeight());
                 dataBean.getRelative().setWeight(data.getData().getWeight());
                 setUserData(dataBean);

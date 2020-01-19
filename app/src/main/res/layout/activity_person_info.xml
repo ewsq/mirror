@@ -114,7 +114,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="left|center_vertical"
                         android:text="姓名"
                         android:textSize="14sp"
                         android:textColor="#999999"/>
@@ -122,22 +122,18 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3">
+                    android:layout_weight="2">
 
                     <EditText
                         android:id="@+id/et_show_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
-                        android:gravity="center"
-                        android:text="刘张宇"
+                        android:gravity="center|left"
+                        android:text=""
                         android:textColor="#434343"
                         android:textSize="14sp" />
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"></LinearLayout>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -155,7 +151,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="left|center_vertical"
                         android:text="性别"
                         android:textSize="14sp"
                         android:textColor="#999999"/>
@@ -165,43 +161,32 @@
                     android:id="@+id/linSex"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1" />
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="2">
+                        android:layout_weight="1"
+                        android:gravity="center|left">
                         <ImageView
                             android:id="@+id/iv_show_sex_icon"
                             android:layout_width="22dp"
                             android:layout_height="22dp"
                             android:layout_centerInParent="true"
                             android:src="@mipmap/man_select" />
-                    </RelativeLayout>
-
-
-                    <TextView
-                        android:id="@+id/tv_show_sex"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:gravity="center_vertical"
-                        android:src="@mipmap/man_select"
-                        android:text="男"
-                        android:textColor="#434343"
-                        android:textSize="14sp" />
-
-
+                        <TextView
+                            android:id="@+id/tv_show_sex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="15dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/man_select"
+                            android:text=""
+                            android:textColor="#434343"
+                            android:textSize="14sp" />
+                    </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"></LinearLayout>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -220,23 +205,24 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="left|center_vertical"
                         android:text="身高" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/linHeight"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:orientation="horizontal"
-                    android:gravity="center_horizontal">
+                    android:gravity="center|left">
 
                     <TextView
                         android:id="@+id/pick_height"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="160" />
+                        android:text="" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -244,15 +230,12 @@
                         android:gravity="center"
                         android:text="cm" />
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"></LinearLayout>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="#E5E5E5"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -266,45 +249,28 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="left|center_vertical"
                         android:text="体重" />
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/linWeight"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
+                    android:layout_weight="2"
                     android:orientation="horizontal"
-                    android:gravity="center_horizontal">
+                    android:gravity="center|left">
 
                     <TextView
                         android:id="@+id/pick_weight"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="55" />
+                        android:text="" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="kg" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:visibility="invisible">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:id="@+id/iv_eyes"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@mipmap/eyes"/>
-                    </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
             <View
@@ -323,7 +289,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:gravity="left|center_vertical"
                         android:text="生日"
                         android:textSize="14sp"
                         android:textColor="#999999"/>
@@ -331,22 +297,56 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="3">
+                    android:layout_weight="2"
+                    android:gravity="center|left">
 
                     <TextView
                         android:id="@+id/tv_show_birthday"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="1995-02"
+                        android:gravity="center_vertical"
+                        android:text="00-00-00"
                         android:textColor="#434343"
                         android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#E5E5E5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:text="邮箱"
+                        android:textSize="14sp"
+                        android:textColor="#999999"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    ></LinearLayout>
+                    android:layout_weight="2">
+
+                    <EditText
+                        android:id="@+id/et_show_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="#434343"
+                        android:textSize="14sp"
+                        android:background="@null"/>
+                </LinearLayout>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
