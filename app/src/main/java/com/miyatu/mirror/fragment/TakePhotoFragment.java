@@ -274,6 +274,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                         bundle.putString("userName", dataBean.getRelative());
                         bundle.putInt("gender", dataBean.getGender());
                         bundle.putString("height", dataBean.getHeight());
+                        bundle.putString("weight", dataBean.getWeight());
                         bundle.putInt("relativeID", dataBean.getId());
                         bundle.putInt("cameraFacing", cameraFacing);
                         startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
