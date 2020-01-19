@@ -143,6 +143,12 @@
             android:name="com.miyatu.mirror.activity.MeasurementsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name="com.miyatu.mirror.activity.ServiceAgreementActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.miyatu.mirror.activity.PrivacyPolicyActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name="com.miyatu.mirror.activity.ConnectServiceActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

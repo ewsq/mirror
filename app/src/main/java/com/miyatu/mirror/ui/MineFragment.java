@@ -24,6 +24,8 @@ import com.miyatu.mirror.activity.ConnectServiceActivity;
 import com.miyatu.mirror.activity.LoginActivity;
 import com.miyatu.mirror.activity.MyBalanceActivity;
 import com.miyatu.mirror.activity.PersonInfo;
+import com.miyatu.mirror.activity.PrivacyPolicyActivity;
+import com.miyatu.mirror.activity.ServiceAgreementActivity;
 import com.miyatu.mirror.bean.UserDatabean;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.miyatu.mirror.util.ShareUtils;
@@ -54,6 +56,8 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
     private LinearLayout ll;
     private LinearLayout linUserData;
     private Button logout;
+    private TextView tvServiceAgreement;        //服务协议
+    private TextView tvPrivacyPolicy;           //隐私政策
 
     private String userJson;
 
@@ -82,6 +86,8 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         linUserData = view.findViewById(R.id.linUserData);
         logout = view.findViewById(R.id.logout);
         llMineBalance = view.findViewById(R.id.ll_mine_balance);
+        tvServiceAgreement = view.findViewById(R.id.tv_service_agreement);
+        tvPrivacyPolicy = view.findViewById(R.id.tv_privacy_policy);
 
         initPopVolume();
         initPopShare();
@@ -107,6 +113,8 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
         llMineBalance.setOnClickListener(this);
         llConnectService.setOnClickListener(this);
         logout.setOnClickListener(this);
+        tvServiceAgreement.setOnClickListener(this);
+        tvPrivacyPolicy.setOnClickListener(this);
     }
 
     @Override
@@ -160,6 +168,12 @@ public class MineFragment extends PublicFragment implements View.OnClickListener
                 break;
             case R.id.logout:
                 logout();
+                break;
+            case R.id.tv_service_agreement:         //服务协议
+                ServiceAgreementActivity.startActivity(getActivity());
+                break;
+            case R.id.tv_privacy_policy:            //隐私政策
+                PrivacyPolicyActivity.startActivity(getActivity());
                 break;
         }
     }

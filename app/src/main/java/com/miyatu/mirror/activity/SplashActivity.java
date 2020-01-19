@@ -10,6 +10,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -18,6 +23,7 @@ import androidx.core.content.ContextCompat;
 import com.miyatu.mirror.PublicActivity;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.util.CommonUtils;
+import com.wzgiceman.rxretrofitlibrary.retrofit_rx.utils.PreferencesUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +42,12 @@ public class SplashActivity extends PublicActivity {
 
     private Context context;
 
+    private LinearLayout linAgree;
+    private TextView tvYinSi;
+    private TextView tvXieYi;
+    private CheckBox checkBox;
+    private TextView tvAgree;
+    private TextView tvClose;
 
     @Override
     protected int getLayoutId() {
@@ -44,18 +56,70 @@ public class SplashActivity extends PublicActivity {
 
     @Override
     protected void initView() {
+        context = SplashActivity.this;
 
+        tvYinSi = findViewById(R.id.tv_yinsi);
+        tvXieYi = findViewById(R.id.tv_xieyi);
+        checkBox = findViewById(R.id.checkBox);
+        tvAgree = findViewById(R.id.tv_agree);
+        tvClose = findViewById(R.id.tv_close);
+        linAgree = findViewById(R.id.linAgree);
     }
 
     @Override
     protected void initData() {
-        context = SplashActivity.this;
-        initPermissions();
+
+        String str = PreferencesUtils.getString(this, PreferencesUtils.IS_AGREE, "");           //查看是否同意过隐私政策和服务协议
+        if (str == null || str.equals("")) {
+//            initPopWindow();
+            linAgree.setVisibility(View.VISIBLE);
+        }
+        else {
+            linAgree.setVisibility(View.GONE);
+            initPermissions();
+        }
     }
 
     @Override
     protected void initEvent() {
-
+        tvClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        tvYinSi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PrivacyPolicyActivity.startActivity(SplashActivity.this);
+            }
+        });
+        tvXieYi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ServiceAgreementActivity.startActivity(SplashActivity.this);
+            }
+        });
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    tvAgree.setBackground(getResources().getDrawable(R.drawable.agree));
+                    tvAgree.setClickable(true);
+                }else{
+                    tvAgree.setBackground(getResources().getDrawable(R.drawable.dis_agree));
+                    tvAgree.setClickable(false);
+                }
+            }
+        });
+        tvAgree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linAgree.setVisibility(View.GONE);
+                PreferencesUtils.putString(context, PreferencesUtils.IS_AGREE, "true");         //标记已经同意了隐私政策和服务协议
+                initPermissions();
+            }
+        });
     }
 
     @Override

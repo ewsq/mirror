@@ -23,6 +23,8 @@ public class PreferencesUtils {
 	public static final String WEIXIN_OPENID_KEY = "openid_wx";
 	public static final String WEIXIN_REFRESH_TOKEN_KEY = "refresh_token_wx";
 
+	public static final String IS_AGREE = "isAgree";			//是否同意隐私政策和服务协议
+
 	/**存储字符串*/
 	public static boolean putString(Context context, String key, String value) {
 		SharedPreferences preferences = context.getSharedPreferences(PREFERENCE_NAME, 0);
