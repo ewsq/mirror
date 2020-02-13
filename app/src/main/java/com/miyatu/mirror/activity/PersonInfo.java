@@ -2,6 +2,7 @@ package com.miyatu.mirror.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,8 +26,6 @@ import com.miyatu.mirror.bean.EditInfoBean;
 import com.miyatu.mirror.bean.UserDatabean;
 import com.miyatu.mirror.http.api.IndexApi;
 import com.miyatu.mirror.util.BitmapUtil;
-import com.miyatu.mirror.util.CommonUtils;
-import com.miyatu.mirror.util.FileUtils;
 import com.miyatu.mirror.util.LogUtils;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
@@ -74,6 +73,9 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
     private HttpManager manager;
     private IndexApi api;
     private Map<String, Object> params;
+
+    private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
+    private static final int PHOTO_REQUEST_CUT = 3;// 结果
 
     public static void startActivity(Context context){
         Intent intent = new Intent(context, PersonInfo.class);
@@ -213,7 +215,7 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_GALLERY
-                startActivityForResult(intent, CommonUtils.PHOTO_REQUEST_GALLERY);
+                startActivityForResult(intent, PHOTO_REQUEST_GALLERY);
                 break;
             }
         }
@@ -379,18 +381,45 @@ public class PersonInfo extends PublicActivity implements View.OnClickListener, 
         ToastUtils.show(e.getMessage());
     }
 
+    /*
+     * 剪切图片
+     */
+    private void crop(Uri uri) {
+        // 裁剪图片意图
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        // 裁剪框的比例，1：1
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        // 裁剪后输出图片的尺寸大小
+        intent.putExtra("outputX", 250);
+        intent.putExtra("outputY", 250);
+        intent.putExtra("outputFormat", "JPEG");// 图片格式
+        intent.putExtra("noFaceDetection", true);// 取消人脸识别
+        intent.putExtra("return-data", true);
+
+        // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_CUT
+        startActivityForResult(intent, PHOTO_REQUEST_CUT);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CommonUtils.PHOTO_REQUEST_GALLERY) {
+        if (requestCode == PHOTO_REQUEST_GALLERY) {
             // 从相册返回的数据
             if (data != null) {
                 // 得到图片的全路径
                 Uri uri = data.getData();
-                portraitFile = FileUtils.uriToFile(uri,this);
-                portraitFile = BitmapUtil.compressImage(portraitFile.getAbsolutePath(),"temp");
-
-                Glide.with(this).load(uri).into(iv_change_head);
+                crop(uri);
+            }
+        }
+        else if (requestCode == PHOTO_REQUEST_CUT) {
+            // 从剪切图片返回的数据
+            if (data != null) {
+                Bitmap bitmap = data.getParcelableExtra("data");
+                Glide.with(this).load(bitmap).into(iv_change_head);
+                portraitFile = BitmapUtil.bitmapToFile(bitmap, "portrait");
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

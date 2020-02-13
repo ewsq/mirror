@@ -125,7 +125,7 @@ public class MyVolumeRecordFragment extends PublicFragment implements HttpOnNext
                 MyVolumeRecordFragmentBean.DataBean dataBean = (MyVolumeRecordFragmentBean.DataBean)adapter.getData().get(position);
                 switch (view.getId()) {
                     case R.id.tv_pay:
-                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), dataBean.getRelative_id());
+                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), dataBean.getRelative_id(), dataBean.getPrice());
                         break;
                     case R.id.tv_more:
                         RecordDetailsActivity.startActivity(getActivity(), dataBean.getRelative_id(), dataBean.getId());

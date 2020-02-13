@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -114,6 +115,14 @@ public class SideCameraActivity extends RxAppCompatActivity {
                 }
             });
         }
+
+        ivHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+            }
+        });
+
         ivTakePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +147,7 @@ public class SideCameraActivity extends RxAppCompatActivity {
         View view = LayoutInflater.from(SideCameraActivity.this).inflate(R.layout.pop_take_photo_help,null);
         int width = ScreenUtils.getScreenWidth(SideCameraActivity.this);
         int height = ScreenUtils.getScreenHeight(SideCameraActivity.this);
-        popupWindow = new PopupWindow(view, width*3/5, height/3);
+        popupWindow = new PopupWindow(view, width*4/5, height/2);
         popupWindow.setFocusable(true);
         popupWindow.setTouchable(true);
         popupWindow.setOutsideTouchable(false);

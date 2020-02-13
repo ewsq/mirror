@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.alipay.sdk.app.PayTask;
 import com.google.gson.Gson;
@@ -40,21 +41,25 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
     private LinearLayout linPayforWx;//微信支付
     private LinearLayout linPayforBalance;      //余额支付
 
+    private TextView tvNeedPay;
+
     private int type = 0;           //支付类型 1会员升级 2量体数据 3余额充值
     private int itemID = 0;         //会员等级id或量体数据的id
     private int relativeID = 0;     //关系ID
 
     private String amount;         //充值金额
+    private String price;           //支付金额
 
     private HttpManager manager;
     private IndexApi api;
     private Map<String,Object> params;
 
-    public static void startActivity(Context context, int type, int itemID, int relativeID){
+    public static void startActivity(Context context, int type, int itemID, int relativeID, String price){
         Intent intent = new Intent(context, PayModeActivity.class);
         intent.putExtra("type", type);
         intent.putExtra("itemID", itemID);
         intent.putExtra("relativeID", relativeID);
+        intent.putExtra("price", price);
         context.startActivity(intent);
     }
 
@@ -78,6 +83,8 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
         linPayforWx = findViewById(R.id.ll_payfor_wechat);
         linPayforWx.setOnClickListener(this);
 
+        tvNeedPay = findViewById(R.id.tv_need_pay);
+
         linPayforBalance = findViewById(R.id.ll_payfor_balance);
         linPayforBalance.setOnClickListener(this);
     }
@@ -88,9 +95,14 @@ public class PayModeActivity extends PublicActivity implements View.OnClickListe
         itemID = getIntent().getIntExtra("itemID", 0);
         relativeID = getIntent().getIntExtra("relativeID", 0);
         amount = getIntent().getStringExtra("amount");
+        price = getIntent().getStringExtra("price");
 
         if (type == 3) {
             linPayforBalance.setVisibility(View.GONE);          //余额重置隐藏掉余额支付选项
+            tvNeedPay.setText(amount);
+        }
+        else {
+            tvNeedPay.setText(price);
         }
     }
 

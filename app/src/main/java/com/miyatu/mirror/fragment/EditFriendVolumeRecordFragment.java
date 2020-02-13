@@ -174,7 +174,7 @@ public class EditFriendVolumeRecordFragment extends PublicFragment implements Ht
                 FriendVolumeRecordFragmentBean.DataBean dataBean = (FriendVolumeRecordFragmentBean.DataBean)adapter.getData().get(position);
                 switch (view.getId()) {
                     case R.id.tv_pay:
-                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), dataBean.getRelative_id());
+                        PayModeActivity.startActivity(getActivity(), 2, dataBean.getId(), dataBean.getRelative_id(), dataBean.getPrice());
                         break;
                     case R.id.tv_more:
                         RecordDetailsActivity.startActivity(getActivity(), dataBean.getRelative_id(), dataBean.getId());

@@ -77,14 +77,15 @@ public class FrontCameraActivity extends RxAppCompatActivity {
                 .withActivity(FrontCameraActivity.this)
                 .setAppKey("281474788982530048191216143600")
                 .setAppSecret("44666d8b931c5882cb7ddade3e668b19")
+                .setUserId(String.valueOf(getIntent().getExtras().getInt("relativeID")))
                 .setName(getIntent().getExtras().getString("userName"))
                 .setGender(getIntent().getExtras().getInt("gender") == 1? Gender.MALE : Gender.FEMALE)
-                .setHeight(getIntent().getExtras().getInt("height"))
-                .setWeight(getIntent().getExtras().getInt("weight"))
-                .setUserId(String.valueOf(getIntent().getExtras().getInt("relativeID")))
+                .setHeight(Float.parseFloat(getIntent().getExtras().getString("height")))
+                .setWeight(Float.parseFloat(getIntent().getExtras().getString("weight")))
                 .setLanguage(Language.CHINESE)
                 .setUnit(Unit.METRIC)
                 .build();
+
 
         initPopWindow();
 
@@ -185,7 +186,7 @@ public class FrontCameraActivity extends RxAppCompatActivity {
         View view = LayoutInflater.from(FrontCameraActivity.this).inflate(R.layout.pop_take_photo_help,null);
         int width = ScreenUtils.getScreenWidth(FrontCameraActivity.this);
         int height = ScreenUtils.getScreenHeight(FrontCameraActivity.this);
-        popupWindow = new PopupWindow(view, width*3/5, height/3);
+        popupWindow = new PopupWindow(view, width*4/5, height/2);
         popupWindow.setFocusable(true);
         popupWindow.setTouchable(true);
         popupWindow.setOutsideTouchable(false);

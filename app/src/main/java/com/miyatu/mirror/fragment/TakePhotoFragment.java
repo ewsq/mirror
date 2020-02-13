@@ -155,8 +155,8 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 initPopWindow(v, cameraFacing);
                 break;
             }
-            case R.id.ll_help_takephoto: {                  //帮拍模式
-                cameraFacing = MyApp.FACING_BACK;
+            case R.id.ll_help_takephoto: {
+                cameraFacing = MyApp.FACING_BACK;        //帮拍模式
                 initPopWindow(v, cameraFacing);
                 break;
             }
@@ -294,6 +294,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 bundle.putString("userName", relativeBean.getRelative());
                 bundle.putInt("gender", relativeBean.getGender());
                 bundle.putString("height", relativeBean.getHeight());
+                bundle.putString("weight", relativeBean.getWeight());
                 bundle.putInt("relativeID", relativeBean.getRelative_id());
                 bundle.putInt("cameraFacing", cameraFacing);
 

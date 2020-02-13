@@ -55,6 +55,34 @@
         android:layout_height="1dp"/>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="本次支付需要"
+            android:textSize="20dp"
+            android:textColor="#333333"/>
+        <TextView
+            android:id="@+id/tv_need_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#FFEC0707"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="元"
+            android:textSize="20dp"
+            android:textColor="#333333"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/ll_payfor_zhi"
         android:layout_margin="20dp"
         android:background="@drawable/bg_dialog_rect"

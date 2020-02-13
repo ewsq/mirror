@@ -101,13 +101,7 @@ public class AddMeasurementActivity extends PublicActivity implements HttpOnNext
 
     @Override
     protected void initEvent() {
-        toPay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PayModeActivity.startActivity(AddMeasurementActivity.this, 2, dataBean.getMeasure_id(), relativeID);              //type为2表示是量体数据支付
-                finish();
-            }
-        });
+
     }
 
     @Override
@@ -122,6 +116,15 @@ public class AddMeasurementActivity extends PublicActivity implements HttpOnNext
             AddMeasurementBean data = new Gson().fromJson(resulte, new TypeToken<AddMeasurementBean>(){}.getType());
             if (data.getStatus() == 1) {          //成功
                 dataBean = data.getData();
+
+                toPay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PayModeActivity.startActivity(AddMeasurementActivity.this, 2, dataBean.getMeasure_id(), relativeID, String.valueOf(dataBean.getPrice()));              //type为2表示是量体数据支付
+                        finish();
+                    }
+                });
+
                 EventBus.getDefault().post(CommonUtils.REFRESH);;
                 return;
             }
