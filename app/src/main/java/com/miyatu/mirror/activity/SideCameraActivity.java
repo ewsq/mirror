@@ -96,7 +96,7 @@ public class SideCameraActivity extends RxAppCompatActivity {
         progresDialog = new ProgresDialog(this);
 
         if (cameraView.lackRequiredSensors()) {
-            Toast.makeText(this, "lack sensors", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "此手机没有检测到相关传感器", Toast.LENGTH_SHORT).show();
         } else {
             cameraView.setOnSensorListener(new CameraView.OnSensorListener() {
                 @Override

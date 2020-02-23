@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -47,6 +48,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cn.jzvd.JZVideoPlayerStandard;
+
 /**
  * 拍照fragment
  * 布局视图：takephotofragment
@@ -60,6 +63,10 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     private ViewPagerAdapter adapter;
     private ViewPagerIndicator mIndicatorDefault;//圆点指示器
     private List<Fragment> fragmentList = null;//存放 帮拍教程（fragment） 的list
+
+
+    private JZVideoPlayerStandard videoPlayerFront ;
+    private JZVideoPlayerStandard videoPlayerSide;
 
     private HttpManager manager;
     private IndexApi api;
@@ -98,12 +105,16 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
 
     @Override
     protected void initView(View view) {
-        mViewpager = (ViewPager) view.findViewById(R.id.viewpager);
+//        mViewpager = (ViewPager) view.findViewById(R.id.viewpager);
+//        mIndicatorDefault = view.findViewById(R.id.indicator_default);
+
         ll_self_takephoto = view.findViewById(R.id.ll_self_takephoto);
         ll_self_takephoto.setOnClickListener(this);
         ll_help_takephoto = view.findViewById(R.id.ll_help_takephoto);
         ll_help_takephoto.setOnClickListener(this);
-        mIndicatorDefault = view.findViewById(R.id.indicator_default);
+
+        videoPlayerFront = view.findViewById(R.id.videoPlayerFront);
+        videoPlayerSide = view.findViewById(R.id.videoPlayerSide);
     }
 
     @Override
@@ -149,8 +160,6 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_self_takephoto: {                  //自拍模式
-//                Intent intent = new Intent(getActivity(), SelfPhotoMode.class);
-//                startActivity(intent);
                 cameraFacing = MyApp.FACING_FRONT;
                 initPopWindow(v, cameraFacing);
                 break;
@@ -173,8 +182,16 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
             if (data.getStatus() == 1) {          //成功
                 dataBeanList = data.getData();
 
-                initViewPager();
+                videoPlayerFront.setUp(MyApp.imageUrl + dataBeanList.get(0).getVideo(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);              //设置视频地址
+                Glide.with(this).load(MyApp.imageUrl + dataBeanList.get(0).getCover()).placeholder( R.mipmap.edit_person_info_headicon).       //设置预览图
+                        into(videoPlayerFront.thumbImageView);
 
+                videoPlayerSide.setUp(MyApp.imageUrl + dataBeanList.get(1).getVideo(), JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);              //设置视频地址
+                Glide.with(this).load(MyApp.imageUrl + dataBeanList.get(1).getCover()).placeholder( R.mipmap.edit_person_info_headicon).       //设置预览图
+                        into(videoPlayerSide.thumbImageView);
+
+
+//                initViewPager();
                 return;
             }
             ToastUtils.show(data.getMsg());
@@ -275,7 +292,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                         bundle.putInt("gender", dataBean.getGender());
                         bundle.putString("height", dataBean.getHeight());
                         bundle.putString("weight", dataBean.getWeight());
-                        bundle.putInt("relativeID", dataBean.getId());
+                        bundle.putString("relativeID", String.valueOf(dataBean.getId()));
                         bundle.putInt("cameraFacing", cameraFacing);
                         startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
                         popupWindow.dismiss();
@@ -287,7 +304,6 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
         ll_dialog_haved_account.setOnClickListener(new View.OnClickListener() {             //选择了已有量体账户
             @Override
             public void onClick(View v) {
-//                HelpPhotoMode.startActivity(getActivity());
                 UserDatabean.DataBean.RelativeBean relativeBean = getUserDataBean().getRelative();
                 Bundle bundle = new Bundle();
                 bundle.putInt("apiType", MyApp.PROFILE2MEASURE);
@@ -295,20 +311,16 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 bundle.putInt("gender", relativeBean.getGender());
                 bundle.putString("height", relativeBean.getHeight());
                 bundle.putString("weight", relativeBean.getWeight());
-                bundle.putInt("relativeID", relativeBean.getRelative_id());
+                bundle.putString("relativeID", String.valueOf(relativeBean.getRelative_id()));
                 bundle.putInt("cameraFacing", cameraFacing);
 
                 startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
                 popupWindow.dismiss();
-//                FrontCameraActivity.startActivity(getActivity(), relativeBean.getRelative(), relativeBean.getGender(), Double.valueOf(getUserDataBean().getRelative().getHeight()).intValue(),
-//                        Double.valueOf(getUserDataBean().getRelative().getWeight()).intValue(), relativeBean.getRelative_id());
             }
         });
         ll_dialog_new_set_account.setOnClickListener(new View.OnClickListener() {               //新建量体账户
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), NewVolumeDate.class);
-//                startActivity(intent);
                 AddAccountBind.startActivity(getActivity());
                 popupWindow.dismiss();
             }

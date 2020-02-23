@@ -32,6 +32,7 @@ public class MyBalanceActivity extends PublicActivity implements HttpOnNextListe
     private TextView tvBalance;
     private EditText etRechargeAmount;
     private TextView tvRecharge;
+    private TextView tvQueryConsumptionDetails;
 
     private String amount = "";
 
@@ -66,6 +67,7 @@ public class MyBalanceActivity extends PublicActivity implements HttpOnNextListe
         etRechargeAmount.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL); //只能输入数字和小数点
 
         tvRecharge = findViewById(R.id.tv_recharge);
+        tvQueryConsumptionDetails = findViewById(R.id.tv_query_consumption_details);
     }
 
     @Override
@@ -84,6 +86,13 @@ public class MyBalanceActivity extends PublicActivity implements HttpOnNextListe
                     return;
                 }
                 PayModeActivity.startActivity(MyBalanceActivity.this, 3, amount);
+            }
+        });
+
+        tvQueryConsumptionDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QueryConsumptionDetailsActivity.startActivity(MyBalanceActivity.this);
             }
         });
     }

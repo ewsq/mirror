@@ -140,4 +140,8 @@ public interface IndexService {
     @POST(IndexApi.MY_BALANCE)
     Observable<String> myBalance(@FieldMap Map<String,Object> params);
 
+    //查询消费明细
+    @FormUrlEncoded
+    @POST(IndexApi.QUERY_CONSUMPTION_DETAILS)
+    Observable<String> queryConsumptionDetails(@FieldMap Map<String,Object> params);
 }

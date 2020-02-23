@@ -13,7 +13,8 @@ import org.greenrobot.eventbus.Subscribe;
 public abstract class PublicActivity<T> extends RxAppCompatActivity{
     protected boolean isRefreshing = false;
     protected boolean isLoadMore = false;
-    protected int listRows = 20;
+    protected int page = 1;
+    protected int pageSize = 20;
     protected Bundle savedInstanceState;
 
     @Override

@@ -67,6 +67,7 @@ public class RecordDetailsActivity extends PublicActivity implements HttpOnNextL
         params.put("token", getUserDataBean().getToken());
         params.put("ids", measureID);
         params.put("email", getUserDataBean().getEmail());
+        params.put("show_type", 1);         //展示方式 1纵向展示 2横向展示
         manager = new HttpManager(this,(RxAppCompatActivity)RecordDetailsActivity.this);
         api = new IndexApi(IndexApi.SEND_TO_MAILBOX);
         api.setParams(params);

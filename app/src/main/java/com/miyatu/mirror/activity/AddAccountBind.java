@@ -263,11 +263,13 @@ public class AddAccountBind extends PublicActivity implements HttpOnNextListener
                 bundle.putString("userName", etNickName.getText().toString().trim());
                 bundle.putInt("gender", sex);
                 bundle.putString("height", etHeight.getText().toString().trim());
-                bundle.putInt("relativeID", Integer.parseInt(data.getData()));
+                bundle.putString("weight", etWeight.getText().toString().trim());
+                bundle.putString("relativeID", data.getData());
                 bundle.putInt("cameraFacing", cameraFacing);
                 startActivity(new Intent(AddAccountBind.this, FrontCameraActivity.class).putExtras(bundle));
 
                 finish();
+
                 return;
             }
             ToastUtils.show(data.getMsg());

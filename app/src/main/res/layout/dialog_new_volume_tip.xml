@@ -36,9 +36,30 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/ll_dialog_new_set_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp">
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/new_set_volume_account_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="新建量体账户"
+                    android:layout_marginLeft="10.5dp"
+                    android:textSize="14sp"
+                    android:textColor="#333333"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/ll_dialog_haved_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
                 <ImageView
@@ -61,26 +82,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never" />
-
-            <LinearLayout
-                android:id="@+id/ll_dialog_new_set_account"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="15dp">
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@mipmap/new_set_volume_account_icon"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="新建量体账户"
-                    android:layout_marginLeft="10.5dp"
-                    android:textSize="14sp"
-                    android:textColor="#333333"/>
-            </LinearLayout>
 
         </LinearLayout>
 

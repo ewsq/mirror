@@ -77,11 +77,11 @@ public class FrontCameraActivity extends RxAppCompatActivity {
                 .withActivity(FrontCameraActivity.this)
                 .setAppKey("281474788982530048191216143600")
                 .setAppSecret("44666d8b931c5882cb7ddade3e668b19")
-                .setUserId(String.valueOf(getIntent().getExtras().getInt("relativeID")))
                 .setName(getIntent().getExtras().getString("userName"))
                 .setGender(getIntent().getExtras().getInt("gender") == 1? Gender.MALE : Gender.FEMALE)
                 .setHeight(Float.parseFloat(getIntent().getExtras().getString("height")))
                 .setWeight(Float.parseFloat(getIntent().getExtras().getString("weight")))
+                .setUserId(getIntent().getExtras().getString("relativeID"))
                 .setLanguage(Language.CHINESE)
                 .setUnit(Unit.METRIC)
                 .build();
@@ -160,7 +160,7 @@ public class FrontCameraActivity extends RxAppCompatActivity {
     private void initSensorListener() {
         // 在获取传感器相关数据之前必须先检测传感器是否合格
         if (cameraView.lackRequiredSensors()) {
-            Toast.makeText(this, "lack sensors", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "此手机没有检测到相关传感器", Toast.LENGTH_SHORT).show();
         } else {
             cameraView.setOnSensorListener(new CameraView.OnSensorListener() {
                 @Override
@@ -173,7 +173,6 @@ public class FrontCameraActivity extends RxAppCompatActivity {
                     ivTakePhoto.setVisibility(View.GONE);
                     tvCannotTakePhoto.setVisibility(View.VISIBLE);
                 }
-
                 @Override
                 public void onSensorAngle(float sensorFB, float sensorLR) {
                     cameraAngle = new CameraAngle(sensorFB, sensorLR);

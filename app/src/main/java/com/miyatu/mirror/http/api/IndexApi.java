@@ -57,6 +57,7 @@ public class IndexApi extends BaseApi {
     public static final String ALI_PAY = "extra/aliPay";                        //支付宝支付
     public static final String PAY = "extra/Pay";                               //余额支付
     public static final String MY_BALANCE = "index/getBalance";                 //账户余额
+    public static final String QUERY_CONSUMPTION_DETAILS = "index/getBill";                 //查询消费明细
 
     public IndexApi(String mothed) {
         setShowProgress(false);
@@ -213,6 +214,9 @@ public class IndexApi extends BaseApi {
         }
         if (getMothed().equals(MY_BALANCE)) {
             return service.myBalance(params);
+        }
+        if (getMothed().equals(QUERY_CONSUMPTION_DETAILS)) {
+            return service.queryConsumptionDetails(params);
         }
         return null;
     }

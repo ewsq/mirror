@@ -173,6 +173,9 @@
             android:name="com.miyatu.mirror.activity.EditOutlineActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
+            android:name="com.miyatu.mirror.activity.QueryConsumptionDetailsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
             android:name="com.miyatu.mirror.ui.InformationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

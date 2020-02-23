@@ -124,8 +124,7 @@
                     android:id="@+id/ivTakePhoto"
                     android:layout_width="76.5dp"
                     android:layout_height="76.5dp"
-                    android:src="@mipmap/self_photo_btn"
-                    android:visibility="gone"/>
+                    android:src="@mipmap/self_photo_btn"/>
 
                 <TextView
                     android:id="@+id/tvCannotTakePhoto"
