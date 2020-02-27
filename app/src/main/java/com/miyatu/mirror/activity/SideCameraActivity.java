@@ -144,7 +144,7 @@ public class SideCameraActivity extends RxAppCompatActivity {
     }
 
     private void initPopWindow() {
-        View view = LayoutInflater.from(SideCameraActivity.this).inflate(R.layout.pop_take_photo_help,null);
+        View view = LayoutInflater.from(SideCameraActivity.this).inflate(R.layout.pop_side_take_photo_help,null);
         int width = ScreenUtils.getScreenWidth(SideCameraActivity.this);
         int height = ScreenUtils.getScreenHeight(SideCameraActivity.this);
         popupWindow = new PopupWindow(view, width*4/5, height/2);

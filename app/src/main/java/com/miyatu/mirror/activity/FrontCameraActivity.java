@@ -182,7 +182,7 @@ public class FrontCameraActivity extends RxAppCompatActivity {
     }
 
     private void initPopWindow() {
-        View view = LayoutInflater.from(FrontCameraActivity.this).inflate(R.layout.pop_take_photo_help,null);
+        View view = LayoutInflater.from(FrontCameraActivity.this).inflate(R.layout.pop_front_take_photo_help,null);
         int width = ScreenUtils.getScreenWidth(FrontCameraActivity.this);
         int height = ScreenUtils.getScreenHeight(FrontCameraActivity.this);
         popupWindow = new PopupWindow(view, width*4/5, height/2);

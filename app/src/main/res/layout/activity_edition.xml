@@ -31,7 +31,7 @@
             android:gravity="center"
             android:textSize="18sp"
             android:textColor="#181818"
-            android:text="软硬件版本"
+            android:text="软件版本"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
