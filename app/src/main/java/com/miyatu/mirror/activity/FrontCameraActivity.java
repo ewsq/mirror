@@ -1,6 +1,5 @@
 package com.miyatu.mirror.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 
 import com.camerakit.CameraKit;
 import com.miyatu.mirror.Custom.ProgresDialog;
-import com.miyatu.mirror.MyApp;
 import com.miyatu.mirror.R;
 import com.miyatu.mirror.util.ScreenUtils;
 import com.tozmart.tozisdk.activity.RxAppCompatActivity;
@@ -46,46 +44,44 @@ public class FrontCameraActivity extends RxAppCompatActivity {
 
     private PopupWindow popupWindow;
 
+    private int apiType;
     private String userName;
     private int gender;
-    private int height;
-    private int weight;
+    private String height;
+    private String weight;
     private int relativeID;
 
     private CameraAngle cameraAngle;
     private Bitmap bitmap;
     private ProgresDialog progresDialog;
 
-    private int cameraFacing;
-
-    public static void startActivity(Context context, String userName, int gender, int height, int weight, int relativeID){
-        Intent intent = new Intent(context, FrontCameraActivity.class);
-        intent.putExtra("userName", userName);
-        intent.putExtra("gender", gender);
-        intent.putExtra("height", height);
-        intent.putExtra("weight", weight);
-        intent.putExtra("relativeID", relativeID);
-        context.startActivity(intent);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_camera);
 
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            apiType = bundle.getInt("apiType");
+            userName = bundle.getString("userName");
+            gender = bundle.getInt("gender");
+            height = bundle.getString("height");
+            weight = bundle.getString("weight");
+            relativeID = bundle.getInt("relativeID");
+        }
+
         new OneMeasureSDKLite.Builder()
                 .withActivity(FrontCameraActivity.this)
                 .setAppKey("281474788982530048191216143600")
                 .setAppSecret("44666d8b931c5882cb7ddade3e668b19")
-                .setName(getIntent().getExtras().getString("userName"))
-                .setGender(getIntent().getExtras().getInt("gender") == 1? Gender.MALE : Gender.FEMALE)
-                .setHeight(Float.parseFloat(getIntent().getExtras().getString("height")))
-                .setWeight(Float.parseFloat(getIntent().getExtras().getString("weight")))
-                .setUserId(getIntent().getExtras().getString("relativeID"))
+                .setName(userName)
+                .setGender(gender == 1? Gender.MALE : Gender.FEMALE)
+                .setHeight(Float.parseFloat(height))
+                .setWeight(Float.parseFloat(weight))
+                .setUserId(String.valueOf(relativeID))
                 .setLanguage(Language.CHINESE)
                 .setUnit(Unit.METRIC)
                 .build();
-
 
         initPopWindow();
 
@@ -99,20 +95,21 @@ public class FrontCameraActivity extends RxAppCompatActivity {
 
         progresDialog = new ProgresDialog(this);
 
-        cameraFacing = getIntent().getExtras().getInt("cameraFacing");
-        switch (cameraFacing) {
-            case MyApp.FACING_BACK:
-                cameraView.setFacing(CameraKit.FACING_BACK);
-                break;
-            case MyApp.FACING_FRONT:
-                cameraView.setFacing(CameraKit.FACING_FRONT);
-                break;
-        }
+        cameraView.setFacing(CameraKit.FACING_BACK);
+//        cameraFacing = getIntent().getExtras().getInt("cameraFacing");
+//        switch (cameraFacing) {
+//            case MyApp.FACING_BACK:
+//                cameraView.setFacing(CameraKit.FACING_BACK);
+//                break;
+//            case MyApp.FACING_FRONT:
+//                cameraView.setFacing(CameraKit.FACING_FRONT);
+//                break;
+//        }
 
         initSensorListener();
 
-        tvUserName.setText(getIntent().getExtras().getString("userName"));
-        tvUserHeight.setText(getIntent().getExtras().getString("height") + "cm");
+        tvUserName.setText(userName);
+        tvUserHeight.setText(height);
 
         ivHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,13 +219,10 @@ public class FrontCameraActivity extends RxAppCompatActivity {
 
                     Bundle bundle = new Bundle();
                     bundle.putString("taskId", taskId);
-                    if (getIntent().getExtras() != null) {
-                        bundle.putInt("apiType", getIntent().getExtras().getInt("apiType"));
-                        bundle.putString("userName", getIntent().getExtras().getString("userName"));
-                        bundle.putString("height", getIntent().getExtras().getString("height"));
-                        bundle.putInt("relativeID", getIntent().getExtras().getInt("relativeID"));
-                        bundle.putInt("cameraFacing", getIntent().getExtras().getInt("cameraFacing"));
-                    }
+                    bundle.putInt("apiType", apiType);
+                    bundle.putString("userName", userName);
+                    bundle.putString("height", height);
+                    bundle.putInt("relativeID", relativeID);
 //                    bundle.putString("userName", userName);
 //                    bundle.putInt("gender", gender);
 //                    bundle.putInt("height", height);

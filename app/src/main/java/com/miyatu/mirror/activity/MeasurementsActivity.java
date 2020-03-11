@@ -140,7 +140,6 @@ public class MeasurementsActivity extends RxAppCompatActivity{
                         bean.setIntro(measurementEntityList.get(i).getSizeIntro());
                         bean.setName(measurementEntityList.get(i).getSizeName());
                         bean.setUnit(measurementEntityList.get(i).getUnit());
-                        System.out.println("####step" + measurementEntityList.get(i).getSizeName() + measurementEntityList.get(i).getMeaValue() + measurementEntityList.get(i).getUnit());
                         measurementBeanList.add(bean);
                     }
                     Bundle bundle = new Bundle();

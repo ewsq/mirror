@@ -47,8 +47,6 @@ public class SideCameraActivity extends RxAppCompatActivity {
     private Bitmap bitmap;
     private ProgresDialog progresDialog;
 
-    private int cameraFacing;
-
     private int apiType;
 
     private String userName;
@@ -77,21 +75,21 @@ public class SideCameraActivity extends RxAppCompatActivity {
             userName = bundle.getString("userName");
             height = bundle.getString("height");
             relativeID = bundle.getInt("relativeID");
-            cameraFacing = getIntent().getExtras().getInt("cameraFacing");
         }
 
         tvUserName.setText(userName);
         tvUserHeight.setText(height + "cm");
 
-        switch (cameraFacing) {
-            case MyApp.FACING_BACK:
-                cameraView.setFacing(CameraKit.FACING_BACK);
-                break;
-            case MyApp.FACING_FRONT:
-                cameraView.setFacing(CameraKit.FACING_FRONT);
-                break;
-        }
 
+        cameraView.setFacing(CameraKit.FACING_BACK);
+//        switch (cameraFacing) {
+//            case MyApp.FACING_BACK:
+//                cameraView.setFacing(CameraKit.FACING_BACK);
+//                break;
+//            case MyApp.FACING_FRONT:
+//                cameraView.setFacing(CameraKit.FACING_FRONT);
+//                break;
+//        }
 
         progresDialog = new ProgresDialog(this);
 

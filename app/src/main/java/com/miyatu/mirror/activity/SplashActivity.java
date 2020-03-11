@@ -74,7 +74,10 @@ public class SplashActivity extends PublicActivity {
 //            initPopWindow();
             linAgree.setVisibility(View.VISIBLE);
         }
-        else {
+        else if (str.equals("false")) {
+            linAgree.setVisibility(View.VISIBLE);
+        }
+        else if (str.equals("true")) {
             linAgree.setVisibility(View.GONE);
             initPermissions();
         }
@@ -105,9 +108,11 @@ public class SplashActivity extends PublicActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     tvAgree.setBackground(getResources().getDrawable(R.drawable.agree));
+                    tvAgree.setTextColor(getResources().getColor(R.color.default_white_corlor));
                     tvAgree.setClickable(true);
                 }else{
                     tvAgree.setBackground(getResources().getDrawable(R.drawable.dis_agree));
+                    tvAgree.setTextColor(getResources().getColor(R.color.default_white_black));
                     tvAgree.setClickable(false);
                 }
             }

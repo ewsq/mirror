@@ -46,13 +46,25 @@ public class AddMeasurementActivity extends PublicActivity implements HttpOnNext
 
     private AddMeasurementBean.DataBean dataBean = new AddMeasurementBean.DataBean();
 
-    private HttpManager manager;
-    private IndexApi api;
-    private Map<String, Object> params;
 
     private AddMeasurementAdapter adapter;
     private RecyclerView recyclerView;
     private List<MeasurementBean> measurementBeanList = new ArrayList<MeasurementBean>();
+
+    private HttpManager manager;
+    private IndexApi api;
+    private Map<String, Object> params;
+
+    private void initRequest() {
+        params = new HashMap<>();
+        manager = new HttpManager(this, this);
+        api = new IndexApi(IndexApi.ADD_MEASURE);
+        params.put("token", getUserDataBean().getToken());
+        params.put("relative_id", relativeID);
+        params.put("measure", new Gson().toJson(measurementBeanList));
+        api.setParams(params);
+        manager.doHttpDeal(api);
+    }
 
     @Override
     protected int getLayoutId() {
@@ -88,17 +100,6 @@ public class AddMeasurementActivity extends PublicActivity implements HttpOnNext
         recyclerView.setAdapter(adapter);
     }
 
-    private void initRequest() {
-        params = new HashMap<>();
-        manager = new HttpManager(this, this);
-        api = new IndexApi(IndexApi.ADD_MEASURE);
-        params.put("token", getUserDataBean().getToken());
-        params.put("relative_id", relativeID);
-        params.put("measure", new Gson().toJson(measurementBeanList));
-        api.setParams(params);
-        manager.doHttpDeal(api);
-    }
-
     @Override
     protected void initEvent() {
 
@@ -124,8 +125,8 @@ public class AddMeasurementActivity extends PublicActivity implements HttpOnNext
                         finish();
                     }
                 });
-
-                EventBus.getDefault().post(CommonUtils.REFRESH);;
+                EventBus.getDefault().post(CommonUtils.REFRESH);
+                ToastUtils.show(data.getMsg());
                 return;
             }
             ToastUtils.show(data.getMsg());

@@ -79,8 +79,6 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     private RecyclerView popRecyclerView;
     private TakePhotoFragmentAdapter popAdapter;
 
-    private int cameraFacing;           //标记前后摄像头
-
     private void initRequest() {
         params = new HashMap<>();
         manager = new HttpManager(this,(RxAppCompatActivity)getActivity());
@@ -159,14 +157,17 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_self_takephoto: {                  //自拍模式
-                cameraFacing = MyApp.FACING_FRONT;
-                initPopWindow(v, cameraFacing);
-                break;
-            }
-            case R.id.ll_help_takephoto: {
-                cameraFacing = MyApp.FACING_BACK;        //帮拍模式
-                initPopWindow(v, cameraFacing);
+
+//            case R.id.ll_self_takephoto: {                  //自拍模式
+//                cameraFacing = MyApp.FACING_FRONT;
+//                initPopWindow(v, cameraFacing);
+//                break;
+//            }
+            case R.id.ll_help_takephoto: {             //帮拍模式
+//                cameraFacing = MyApp.FACING_BACK;
+//                initPopWindow(v, cameraFacing);
+                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+                ScreenUtils.dimBackground(getActivity(), 1f, 0.5f);
                 break;
             }
         }
@@ -202,6 +203,9 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
             AccountBindBean data = new Gson().fromJson(resulte, new TypeToken<AccountBindBean>(){}.getType());
             if (data.getStatus() == 1) {          //成功
                 addAccountBindList = data.getData();
+
+                initPopWindow();
+
                 return;
             }
             ToastUtils.show(data.getMsg());
@@ -242,7 +246,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
     }
 
 
-    private void initPopWindow(View v, int cameraFacing) {
+    private void initPopWindow() {
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_new_volume_tip,null);
 
         LinearLayout ll_dialog_haved_account = view.findViewById(R.id.ll_dialog_haved_account);
@@ -292,8 +296,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                         bundle.putInt("gender", dataBean.getGender());
                         bundle.putString("height", dataBean.getHeight());
                         bundle.putString("weight", dataBean.getWeight());
-                        bundle.putString("relativeID", String.valueOf(dataBean.getId()));
-                        bundle.putInt("cameraFacing", cameraFacing);
+                        bundle.putInt("relativeID", dataBean.getId());
                         startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
                         popupWindow.dismiss();
                         break;
@@ -311,9 +314,7 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 bundle.putInt("gender", relativeBean.getGender());
                 bundle.putString("height", relativeBean.getHeight());
                 bundle.putString("weight", relativeBean.getWeight());
-                bundle.putString("relativeID", String.valueOf(relativeBean.getRelative_id()));
-                bundle.putInt("cameraFacing", cameraFacing);
-
+                bundle.putInt("relativeID", relativeBean.getRelative_id());
                 startActivity(new Intent(getActivity(), FrontCameraActivity.class).putExtras(bundle));
                 popupWindow.dismiss();
             }
@@ -325,9 +326,6 @@ public class TakePhotoFragment extends PublicFragment implements View.OnClickLis
                 popupWindow.dismiss();
             }
         });
-
-        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
-        ScreenUtils.dimBackground(getActivity(), 1f, 0.5f);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
